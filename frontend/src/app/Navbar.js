@@ -25,13 +25,13 @@ export default function NavBar() {
         <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
           Home
         </Link></div>
-        <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/projects" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
+        <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/products" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
           Products
         </Link></div>
-        <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/about" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
+        <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/blogs" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
           Blog
         </Link></div>
-        <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/contact" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
+        <div className="lg:bg-gradient-to-b lg:from-slate-950 lg:to-slate-800 hover:bg-slate-950 text-center"><Link href="/cart" className="py-3 px-12 lg:px-8 rounded-lg font-semibold hover:bg-gray-950" >
           Cart
         </Link></div>
         
