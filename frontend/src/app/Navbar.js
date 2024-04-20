@@ -13,9 +13,9 @@ export default function NavBar() {
 
 
   return (
-    <div className="bg-gradient-to-b from-slate-950 to-slate-800  text-white flex items-center justify-between h-16 leading-[4rem] px-4 xm:px-8">
+    <div className="w-full bg-gradient-to-b from-slate-950 to-slate-800  text-white flex items-center justify-between h-16 leading-[4rem] px-4 xm:px-8">
       <div className="">
-        <h2 className="font-bold text-3xl text-center rounded-md text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 w-fit leading-[4rem] font-mono"><span>E</span>commerse</h2>
+        <Link href={'/'} className="font-bold text-3xl text-center rounded-md text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 w-fit leading-[4rem] font-mono"><span>E</span>commerse</Link>
       </div>
 
       <div className="fixed top-0 right-0 lg:static lg:flex gap-1 hidden right-navbar bg-gradient-to-b from-slate-950 to-slate-800  lg:bg-inherit min-h-[100vh] lg:min-h-fit z-10">
