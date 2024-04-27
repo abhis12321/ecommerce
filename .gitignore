@@ -1,35 +1,3 @@
-# Node.js files
-<<<<<<< HEAD
-node_modules/
-
-# Environment variables
-=======
-backend/node_modules/
-frontend/node_modules/
-node_modules/
-
-# Environment variables
-/*.env
->>>>>>> 2734bf7 (making it a full stack web-app)
-.env
-
-# Logs
-logs/
-*.log
-
-# Editor-specific files
-.vscode/
-.idea/
-
-# OS-generated files
-.DS_Store
-Thumbs.db
-
-# Dependency lock files
-<<<<<<< HEAD
-package-lock.json
-=======
-package-lock.json
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -43,13 +11,11 @@ package-lock.json
 
 # next.js
 /.next/
-/*.next/
-.next/
 /out/
-out/
+
 # production
 /build
-build
+
 # misc
 .DS_Store
 *.pem
@@ -60,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -68,4 +35,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
->>>>>>> 2734bf7 (making it a full stack web-app)
