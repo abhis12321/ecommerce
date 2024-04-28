@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
+import dbConnect from "../config/dbConnect";
 
-const productSchema = new mongoose.Schema({
+dbConnect();
+
+const product_Schema = new mongoose.Schema({
     name:{
         type:String,
         required:[true , 'Please enter product name'],
@@ -48,10 +51,10 @@ const productSchema = new mongoose.Schema({
         type:Number,
         default:0,
     },
-    ratings:{
-        type:Date,
-        default:Date.now,
-    },
+    ratingsCount: {
+        type:Number,
+        default:0,
+    }
 });
 
-export default mongoose.models.Product || mongoose.model('Product' , productSchema);
+export default mongoose.models.Product || mongoose.model('Products' , product_Schema);
