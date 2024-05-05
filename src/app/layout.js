@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "./Navbar";
-import Footer from "./Footer";
+import NavBar from "./_components/Navbar";
+import Footer from "./_components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="bg-gray-950 text-white">
       <body className="flex flex-col items-center justify-between w-full" style={{minHeight:"calc(100vh)"}}>
         <NavBar />
-        <div className="w-full">
+        <div className="w-full flex-1">
           {children}
         </div>
         <Footer />
