@@ -6,12 +6,13 @@ import {
   faBars,
   faBlog,
   faCartShopping,
-  faCommentDots,
   faHome,
   faUser,
-  faUserGroup,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import ToggleModeButton from "./ToggleModeButton";
+
+
 
 export default function NavBar() {
   const handleRight = () => {
@@ -69,6 +70,8 @@ export default function NavBar() {
           <FontAwesomeIcon icon={faCartShopping} className="text-lg" />
           </Link>
         </div>
+
+        <ToggleModeButton />
       </div>
 
       <div className="lg:hidden text-3xl py-2">
