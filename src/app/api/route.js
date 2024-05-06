@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import product from "../../../backend/model/product";
+import Product from "../lib/models/Product";
 
 export async function GET() {
     try {
-        let data = await product.find();
+        let data = await Product.find();
         return NextResponse.json({data, success:true});
     } catch(error) {
         return NextResponse.json({success:false, message:error.message});
@@ -13,7 +13,7 @@ export async function GET() {
 export async function POST(req , res) {
     try {
         const body = await req.json();
-        const newProduct = new product(body);
+        const newProduct = new Product(body);
         await newProduct.save();
         return NextResponse.json({message:newProduct , success:true})
     } catch(error) {

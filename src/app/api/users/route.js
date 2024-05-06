@@ -9,3 +9,14 @@ export async function GET() {
         return NextResponse.json({message:error.message , success:false});
     }
 }
+
+export async function POST(req , res) {
+    try {
+        const data = await req.json();
+        const user = new User(data);
+        await user.save();
+        return NextResponse.json({user , success:true});
+    } catch(error) {
+        return NextResponse.json({message:error.message , success:false});
+    }
+}

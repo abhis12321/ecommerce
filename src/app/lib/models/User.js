@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+import dbConnect from "../config/dbConnect";
 
+dbConnect();
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -45,4 +47,4 @@ const userSchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.models.User || mongoose.model('Users' , userSchema);
+export default mongoose.models.Users || mongoose.model('Users' , userSchema);
