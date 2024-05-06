@@ -2,7 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function UserLogin({ role, setRole }) {
+export default function UserLogin() {
+    const [role , setRole] = React.useState('customer');
     const [email, setEmail] = React.useState("");
     const [password, setPass] = React.useState("");
 

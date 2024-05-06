@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 
-export default function UserRegister({ role, setRole }) {
+export default function UserRegister() {
+  const [role , setRole] = useState('customer');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mobileNo, setMobileNo] = useState('');
@@ -9,13 +10,13 @@ export default function UserRegister({ role, setRole }) {
 
   const handleUserRegistration = e => {
     e.preventDefault();
-    // axios.post('/api/newUserRegister' , {
-    //     email,
-    //     password,
-    //     mobileNo,
-    //     name,
-    //     role:"seller",
-    // })
+    axios.post('/api/users' , {
+        email,
+        password,
+        mobileNo,
+        name,
+        role,
+    })
 
     console.log(email, password, mobileNo, name, role);
   }
