@@ -2,10 +2,12 @@
 import React from 'react'
 import UserLogin from '../_components/UserLogin'
 
-export default function page() {
+export default function Page() {
+  const [role , setRole] = React.useState('customer');
+
   return (
     <>
-     <UserLogin /> 
+     <UserLogin role={role} setRole={setRole} /> 
     </>
   )
 }
