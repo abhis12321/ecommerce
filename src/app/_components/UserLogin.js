@@ -10,7 +10,7 @@ export default function UserLogin() {
 
     const handleUserLogin = e => {
         e.preventDefault();
-        console.log(email, password);
+        console.log(email, password , role);
 
         axios.patch('/api/users/' , {
             role,

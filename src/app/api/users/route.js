@@ -41,7 +41,10 @@ export async function PATCH(req , res) {
         const data = await req.json();
         const {email , password , role} = data;
         const user = await User.findOne({email , password , role});
-        return NextResponse.json({user , success:user != null});
+        if(user) {
+            return NextResponse.json({user , success:true});            
+        }
+        return NextResponse.json({message:"Invalid Login Credentials" , success:false});
     } catch(error) {
         return NextResponse.json({message:error.message , success:false});
     }
