@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <div className="w-full bg-gradient-to-b from-gray-500 to-lime-900 dark:from-slate-950 dark:to-lime-900 text-gray-300 font-semibold flex items-center justify-between h-16 px-4 xm:px-8 overflow-hidden">
       <div className="">
-        <Link href={'/'} className="font-extrabold font-serif text-4xl text-center rounded-md text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 w-fit leading-[4rem] drop-shadow-[0_0_1px_black]"><span>E</span>commerse</Link>
+        <Link href={'/'} className="font-extrabold text-3xl text-center rounded-md text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 w-fit leading-[4rem] drop-shadow-[0_0_1px_black]"><span>E</span>commerse</Link>
       </div>
 
       <div className="right-navbar fixed lg:static top-0 right-0 hidden lg:flex gap-8 bg-gradient-to-l lg:[background:none] from-gray-500 to-lime-900 dark:from-gray-950 dark:to-lime-900 min-h-[100vh] lg:min-h-fit z-10 items-center min-w-[170px] dark:font-normal font-medium">

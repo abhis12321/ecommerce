@@ -20,7 +20,7 @@ export default function Page() {
           </div>
           <div className="w-[90%] max-w-[500px] m-auto flex justify-between pt-2">
             <button type='submit' className='w-[120px] xm:w-[150px] text-center rounded-md bg-red-900 py-2 hover:bg-red-700 font-mono' >Login</button>
-            <Link href={`/register`} className='w-[120px] xm:w-[150px] text-center rounded-md bg-red-900 py-2 hover:bg-red-700 font-mono' >Resister New</Link>
+            <Link href={`/registerUser`} className='w-[120px] xm:w-[150px] text-center rounded-md bg-red-900 py-2 hover:bg-red-700 font-mono' >Resister New</Link>
           </div>
         </form>
     </div>
