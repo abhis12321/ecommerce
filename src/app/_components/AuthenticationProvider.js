@@ -1,18 +1,22 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 const context = React.createContext();
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = React.useState(null);
   
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("ecommerse-user"));
+    setUser(data);
+  }, []);
 
   const login = (person) => {
     setUser(person);
-    localStorage.setItem('user', JSON.stringify(person));
+    localStorage.setItem('ecommerse-user', JSON.stringify(person));
   };
 
   const logout = () => {
-    localStorage.setItem('user', JSON.stringify(null));
+    localStorage.setItem('ecommerse-user', JSON.stringify(null));
     setUser(null);
   };
 
