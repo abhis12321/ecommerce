@@ -20,3 +20,18 @@ export async function POST(req , res) {
         return NextResponse.json({message:error.message , success:false});
     }
 }
+
+export async function PUT(req , res) {
+    try {
+        const data = await req.json();
+        const user = await User.findOne({email:data.email});
+        user.name = data.name;
+        user.mobileNo = data.mobileNo;
+        user.password = data.password;
+        user.role = data.role;
+        await user.save();
+        return NextResponse.json({user , success:true});
+    } catch(error) {
+        return NextResponse.json({message:error.message , success:false});
+    }
+}
