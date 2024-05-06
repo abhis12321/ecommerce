@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 
 export default function UserLogin() {
     const [role , setRole] = React.useState('customer');
@@ -11,9 +12,17 @@ export default function UserLogin() {
         e.preventDefault();
         console.log(email, password);
 
+        axios.patch('/api/users/' , {
+            role,
+            email,
+            password,
+            })
+            .then(res => res.data)
+            .then(data => console.log(data))
 
         setEmail('');
         setPass('');
+        setRole('customer')
     }
 
 
