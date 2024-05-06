@@ -13,9 +13,9 @@ export async function GET() {
 export async function POST(req , res) {
     try {
         const data = await req.json();
-        const user = new User(data);
-        await user.save();
-        return NextResponse.json({user , success:true});
+        const newUser = new User(data);
+        await newUser.save();
+        return NextResponse.json({user:newUser , success:true});
     } catch(error) {
         return NextResponse.json({message:error.message , success:false});
     }
