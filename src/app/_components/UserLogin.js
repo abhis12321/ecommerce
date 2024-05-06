@@ -21,7 +21,7 @@ export default function UserLogin({ role, setRole }) {
             <form className='text-white bg-gradient-to-t from-cyan-900 dark:from-slate-900 via-gray-400 dark:via-cyan-950 to-cyan-950 dark:to-slate-950 shadow-[0_0_7px_yellow] dark:shadow-[0_0_7px_white] w-[98%] max-w-[800px] py-8 rounded-xl min-h-[280px] opacity-90 flex flex-col gap-3 items-center' autoComplete='on' onSubmit={handleUserLogin}>
 
                 <div className="flex flex-col sm:flex-row gap-2 items-center justify-around w-[98%] max-w-[600px] py-4">
-                    <h1 className='mx-auto text-center py-1 text-3xl xs:text-4xl rounded-md w-fit font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-violet-900 drop-shadow-[0_0_1px_black]'>Login Page</h1>
+                    <h1 className='mx-auto text-center py-1 text-3xl xs:text-4xl rounded-md w-fit font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-violet-900 drop-shadow-[0_0_1px_white]'>Login Page</h1>
                     <select name="status" value={role} onChange={(e) => setRole(e.target.value)} className=' outline-none invalid:text-pink-600 w-fit font-semibold shadow-[0_0_3px_white] bg-slate-950/70 hover:bg-slate-950 focus:bg-slate-950 py-2 px-3 rounded-md mx-auto text-center ring-cyan-600 ring-2' >
                         <option value="customer" className=''>Customer Login</option>
                         <option value="seller" className=''>Seller Login</option>
