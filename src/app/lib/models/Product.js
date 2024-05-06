@@ -35,12 +35,13 @@ const product_Schema = new mongoose.Schema({
                 "Accessories",
                 "Headphones",
                 "Sports",
+                "Garments",
             ],
             message:"Please select correct category"
         }
     },
-    seller:{
-        type:String,
+    sellerId:{
+        type:mongoose.Schema.Types.ObjectId,
         required:[true , 'Please enter product seller'],
     },
     stock:{

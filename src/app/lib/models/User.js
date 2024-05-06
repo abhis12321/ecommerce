@@ -7,10 +7,14 @@ const userSchema = new mongoose.Schema({
     },
     mobileNo:{
         type:String,
+        unique:true,
         required:[true , "Please enter mobile number"],
+        minlength:[10 , "Mobile Number should contain atleast 10 digits"],
+        maxlength:[10 , "Mobile Number should contain atmost 10 digits"],
     },
     email:{
         type:String,
+        unique:true,
         required:[true , 'Please enter email Id'],
     },
     password:{
