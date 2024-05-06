@@ -2,8 +2,10 @@
 import React from 'react';
 import Link from 'next/link';
 import axios from 'axios';
+import { useAuth } from './AuthenticationProvider';
 
 export default function UserLogin() {
+    const USER = useAuth();
     const [role , setRole] = React.useState('customer');
     const [email, setEmail] = React.useState("");
     const [password, setPass] = React.useState("");
@@ -18,8 +20,9 @@ export default function UserLogin() {
             password,
             })
             .then(res => res.data)
-            .then(data => console.log(data))
+            .then(data => USER.login(data));
 
+        console.log("localstorage data" , USER.user);
         setEmail('');
         setPass('');
         setRole('customer')
