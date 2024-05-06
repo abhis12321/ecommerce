@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import React, { useState } from 'react';
 
 export default function UserRegister() {
@@ -16,9 +17,16 @@ export default function UserRegister() {
         mobileNo,
         name,
         role,
-    })
+      })
+      .then(res => res.data)
+      .then(data => console.log(data))
 
     console.log(email, password, mobileNo, name, role);
+    setRole('customer');
+    setEmail('');
+    setPassword("");
+    setMobileNo('');
+    setName('');
   }
 
 

@@ -38,7 +38,7 @@ export default function NavBar() {
         <div className="w-full lg:w-fit flex items-center justify-center">
           <Link
             href="/"
-            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] hover:ring-2 ring-gray-300"
+            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
             <FontAwesomeIcon icon={faHome} className="text-xl w-full " />
           </Link>
@@ -47,7 +47,7 @@ export default function NavBar() {
         <div className="w-full lg:w-fit flex items-center justify-center">
           <Link
             href="/blogs"
-            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] hover:ring-2 ring-gray-300"
+            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
             <FontAwesomeIcon icon={faBlog} className="text-xl" />
           </Link>
@@ -56,7 +56,7 @@ export default function NavBar() {
         <div className="w-full lg:w-fit flex items-center justify-center">
           <Link
             href="/login"
-            className="w-full text-3xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] hover:ring-2 ring-gray-300"
+            className="w-full text-3xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
             <FontAwesomeIcon icon={faUser} className="text-xl" />
           </Link>
@@ -65,7 +65,7 @@ export default function NavBar() {
         <div className="w-full lg:w-fit flex items-center justify-center">
           <Link
             href="/cart"
-            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] hover:ring-2 ring-gray-300"
+            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
             <FontAwesomeIcon icon={faCartShopping} className="text-xl" />
           </Link>

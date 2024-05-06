@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import UserRegister from '../_components/UserRegister'
 
 export default function Page() {

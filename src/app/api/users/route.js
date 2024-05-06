@@ -13,6 +13,7 @@ export async function GET() {
 export async function POST(req , res) {
     try {
         const data = await req.json();
+        console.log(data);
         const newUser = new User(data);
         await newUser.save();
         return NextResponse.json({user:newUser , success:true});
