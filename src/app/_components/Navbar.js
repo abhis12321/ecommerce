@@ -29,10 +29,10 @@ export default function NavBar() {
 
       <div className="right-navbar fixed lg:static top-0 right-0 hidden lg:flex gap-8 bg-gradient-to-l lg:[background:none] from-gray-500 to-lime-900 dark:from-gray-950 dark:to-lime-900 min-h-[100vh] lg:min-h-fit z-10 items-center min-w-[170px] dark:font-normal font-medium">
         <div
-          className="text-4xl py-2 hover:text-red-800 text-center cursor-pointer"
-          onClick={handleRight}
+          className="text-4xl py-2 text-center cursor-pointer"
         >
-          <FontAwesomeIcon icon={faXmark} size="sm" className="hidden cutX" />
+          <FontAwesomeIcon icon={faXmark} size="sm" className="hidden cutX hover:text-red-800" 
+          onClick={handleRight}/>
         </div>
 
         <div className="w-full lg:w-fit flex items-center justify-center">
@@ -78,7 +78,7 @@ export default function NavBar() {
         <FontAwesomeIcon
           icon={faBars}
           size="sm"
-          className="hamberger cursor-pointer text-gray-700 dark:text-gray-200"
+          className="hamberger cursor-pointer text-gray-200"
           onClick={handleRight}
         />
       </div>
