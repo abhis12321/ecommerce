@@ -4,29 +4,13 @@ import dbConnect from "../config/dbConnect";
 dbConnect();
 
 const product_Schema = new mongoose.Schema({
-    name:{
+    productName:{
         type:String,
-        required:[true , 'Please enter product name'],
+        required:[true , 'data missing, Please enter product name'],
     },
-    description:{
-        type:String,
-        required:[true , 'Please enter product decription'],
-    },
-    price:{
-        type:Number,
-        required:[true , 'Please enter product price'],
-    },
-    images:[{
-        public_id:{
-            type:String,
-        },
-        url:{
-            type:String,
-        },
-    }],
     category:{
         type:String,
-        required:[true , 'Please enter product category'],
+        required:[true , 'data missing, Please enter product category'],
         enum: {
             values:[
                 "Electronics",
@@ -37,25 +21,37 @@ const product_Schema = new mongoose.Schema({
                 "Sports",
                 "Garments",
             ],
-            message:"Please select correct category"
+            message:"Invalid value, Please select correct category"
         }
     },
+    // brandId:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     required:[true , 'data missing, Please enter product brand name'],
+    // },
     sellerId:{
         type:mongoose.Schema.Types.ObjectId,
-        required:[true , 'Please enter product seller'],
+        required:[true , 'data missing, Please enter product seller'],
     },
-    stock:{
+    price:{
         type:Number,
-        required:[true , 'Please enter product stock'],
+        required:[true , 'data missing, Please enter product price'],
     },
-    ratings:{
-        type:Number,
-        default:0,
-    },
-    ratingsCount: {
+    discount:{
         type:Number,
         default:0,
-    }
+    },
+    description:{
+        type:String,
+        required:[true , 'data missing, Please enter product decription'],
+    },
+    imgUrl: {
+        type:String,
+        default:'',
+    },
+    availableStock:{
+        type:Number,
+        required:[true , 'data missing, Please enter product available stock'],
+    },
 });
 
 export default mongoose.models.Products || mongoose.model('Products' , product_Schema);
