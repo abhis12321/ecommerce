@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-export default function UserRegister() {
+export default function UserRegister(props) {
   const [role, setRole] = useState('customer');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,12 +21,13 @@ export default function UserRegister() {
       .then(res => res.data)
       .then(data => console.log(data))
 
-    console.log(email, password, mobileNo, name, role);
+    // console.log(email, password, mobileNo, name, role);
     setRole('customer');
     setEmail('');
     setPassword("");
     setMobileNo('');
     setName('');
+    props.setLogin(true);
   }
 
 

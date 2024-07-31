@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useAuth } from './AuthenticationProvider';
+import Link from 'next/link';
 
 export default function UserProfile() {
     const USER = useAuth();
@@ -13,6 +14,7 @@ export default function UserProfile() {
                 <p className=""><span className="text-gray-400">Email : </span>{USER.user?.email}</p>
                 <p className=""><span className="text-gray-400">MobileNo : </span>{USER.user?.mobileNo}</p>
                 <button className='py-2 px-5 bg-red-900 hover:bg-red-800 hover:ring-2 ring-gray-400 rounded-lg' onClick={USER.logout}>Logout</button>
+                <Link href={'/profile/newproducts'} className='' >add new product</Link>
             </div>
         </div>
     )

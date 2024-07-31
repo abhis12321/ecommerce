@@ -14,15 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
+    <AuthProvider >
       <body className="dark bg-gray-100 text-gray-950 dark:bg-gray-950 dark:text-white">
-        <AuthProvider >
           <NavBar />
-            <div className='min-h-[90.9vh]'>
-              {children}
-            </div>
+          <div className='p-1'  style={{ minHeight: "calc(100vh - 4rem)" }} >
+            {children}
+          </div>
           <Footer />
-        </AuthProvider>
       </body>
+    </AuthProvider >
     </html>
   );
 }
