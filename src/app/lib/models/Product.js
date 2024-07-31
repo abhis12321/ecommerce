@@ -52,6 +52,14 @@ const product_Schema = new mongoose.Schema({
         type:Number,
         required:[true , 'data missing, Please enter product available stock'],
     },
+    isVerified:{
+        type:Boolean,
+        default:false,
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now,
+    }
 });
 
 export default mongoose.models.Products || mongoose.model('Products' , product_Schema);
