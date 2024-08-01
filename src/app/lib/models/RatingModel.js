@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import dbConnect from "../config/dbConnect";
 
-
+dbConnect();
 const rating_schema = new mongoose.Schema({
     product_id:{
         type:mongoose.Schema.Types.ObjectId,
