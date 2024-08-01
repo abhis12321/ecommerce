@@ -31,7 +31,7 @@ export default function NavBar() {
         <div
           className="text-4xl py-2 text-center cursor-pointer"
         >
-          <FontAwesomeIcon icon={faXmark} size="sm" className="hidden cutX hover:text-red-800"
+          <FontAwesomeIcon size="xs" icon={faXmark} className="hidden cutX hover:text-red-800"
             onClick={handleRight} />
         </div>
 
@@ -40,7 +40,7 @@ export default function NavBar() {
             href="/"
             className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
-            <FontAwesomeIcon icon={faHome} className="text-xl w-full " />
+            <FontAwesomeIcon size="xs" icon={faHome} className="text-xl w-full " />
           </Link>
         </div>
 
@@ -49,7 +49,7 @@ export default function NavBar() {
             href="/blogs"
             className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
-            <FontAwesomeIcon icon={faBlog} className="text-xl" />
+            <FontAwesomeIcon size="xs" icon={faBlog} className="text-xl" />
           </Link>
         </div>
 
@@ -58,7 +58,7 @@ export default function NavBar() {
             href="/profile"
             className="w-full text-3xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
-            <FontAwesomeIcon icon={faUser} className="text-xl" />
+            <FontAwesomeIcon size="xs" icon={faUser} className="text-xl" />
           </Link>
         </div>
 
@@ -67,7 +67,7 @@ export default function NavBar() {
             href="/cart"
             className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
           >
-            <FontAwesomeIcon icon={faCartShopping} className="text-xl" />
+            <FontAwesomeIcon size="xs" icon={faCartShopping} className="text-xl" />
           </Link>
         </div>
 
