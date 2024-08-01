@@ -18,7 +18,7 @@ const rating_schema = new mongoose.Schema({
     review:{
         type:String,
     },
-    imgUrl:{
+    img_url:{
         type:String,
     },
     rated_at:{

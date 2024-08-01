@@ -3,19 +3,19 @@ import dbConnect from "../config/dbConnect";
 
 dbConnect();
 const userSchema = new mongoose.Schema({
-    userName:{
+    user_name:{
         type:String,
         required:[true , 'data missing, Please enter your name'],
     },
-    address: {
+    user_address: {
         type:String,
         required:[true , "data missing, Please enter your address"],        
     },
-    countryCode:{
+    country_code:{
         type:String,
         default:"+91",
     },
-    mobileNo:{
+    mobile_no:{
         type:String,
         unique:[true , "A user with the same mobile number is already registered."],
         required:[true , "data missing, Please enter your mobile number"],
@@ -31,11 +31,11 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:[true , 'data missing, Please enter a password'],
     },
-    image:{
+    img_url:{
         type:String,
         default:'',
     },
-    role:{
+    user_role:{
         type:String,
         required:[true , 'data missing, Please select a user role'],
         enum: {
@@ -48,11 +48,11 @@ const userSchema = new mongoose.Schema({
             message:"Invalid value, Please select a correct user role"
         }
     },
-    isVerified:{
+    is_verified:{
         type:Boolean,
         default:false,
     },
-    createdAt:{
+    created_at:{
         type:Date,
         default:Date.now,
     }

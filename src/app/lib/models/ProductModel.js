@@ -2,13 +2,12 @@ import mongoose from "mongoose";
 import dbConnect from "../config/dbConnect";
 
 dbConnect();
-
 const product_Schema = new mongoose.Schema({
-    productName:{
+    product_name:{
         type:String,
         required:[true , 'data missing, Please enter product name'],
     },
-    category:{
+    product_category:{
         type:String,
         required:[true , 'data missing, Please enter product category'],
         enum: {
@@ -24,11 +23,11 @@ const product_Schema = new mongoose.Schema({
             message:"Invalid value, Please select correct category"
         }
     },
-    // brandId:{
+    // brand_id:{
     //     type:mongoose.Schema.Types.ObjectId,
     //     required:[true , 'data missing, Please enter product brand name'],
     // },
-    sellerId:{
+    seller_id:{
         type:mongoose.Schema.Types.ObjectId,
         required:[true , 'data missing, Please enter product seller'],
     },
@@ -40,23 +39,23 @@ const product_Schema = new mongoose.Schema({
         type:Number,
         default:0,
     },
-    description:{
+    product_description:{
         type:String,
         required:[true , 'data missing, Please enter product decription'],
     },
-    imgUrl: {
+    img_url: {
         type:String,
         default:'',
     },
-    availableStock:{
+    available_stock:{
         type:Number,
         required:[true , 'data missing, Please enter product available stock'],
     },
-    isVerified:{
+    is_verified:{
         type:Boolean,
         default:false,
     },
-    createdAt:{
+    created_at:{
         type:Date,
         default:Date.now,
     }

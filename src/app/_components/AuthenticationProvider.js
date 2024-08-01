@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
-const context = React.createContext();
+const user_context = React.createContext();
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = React.useState(null);
   
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("ecommerse-user"));
-    setUser(data);
+    data && setUser(data);
   }, []);
 
   const login = (person) => {
@@ -28,13 +28,13 @@ export default function AuthProvider({ children }) {
 
 
   return (
-    <context.Provider value={value}>
+    <user_context.Provider value={value}>
       {children}
-    </context.Provider>
+    </user_context.Provider>
   );
 }
 
 
 export const useAuth = () => {
-  return React.useContext(context);
+  return React.useContext(user_context);
 };
