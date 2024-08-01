@@ -48,3 +48,6 @@ const order_schema = new mongoose.Schema({
         default:Date.now,
     },
 })
+
+
+export const Order = mongoose.models.Order || mongoose.model("Order" , order_schema);
