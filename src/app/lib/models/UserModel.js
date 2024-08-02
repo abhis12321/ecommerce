@@ -7,6 +7,18 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:[true , 'data missing, Please enter your name'],
     },
+    user_gender:{
+        type:String,
+        required:[true , 'data missing, Please enter your gender'],
+        enum: {
+            values:[
+                "male",
+                "female",
+                "others",
+            ],
+            message:"Invalid value, Please select a correct gender"
+        }
+    },
     user_address: {
         type:String,
         required:[true , "data missing, Please enter your address"],        

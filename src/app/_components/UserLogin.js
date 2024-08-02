@@ -4,7 +4,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { useAuth } from './AuthenticationProvider';
 
-export default function UserLogin(props) {
+export default function UserLogin({setOption}) {
     const USER = useAuth();
     const [role, setRole] = React.useState('customer');
     const [email, setEmail] = React.useState("");
@@ -56,7 +56,7 @@ export default function UserLogin(props) {
                     <Link href={`/forgotPassword`} className="drop-shadow-[0_0_3px_black] underline hover:text-blue-500">forgot password</Link>
                 </div>
                 <div className="w-[95%] max-w-[600px] m-auto flex justify-between text-sm sm:text-base">
-                    <p className='w-[130px] xs:w-[160px] text-center rounded-md bg-red-900 py-2 hover:bg-red-700 active:bg-indigo-950 font-mono' onClick={e => props.setLogin(false)}>Resister New</p>
+                    <p className='w-[130px] xs:w-[160px] text-center rounded-md bg-red-900 py-2 hover:bg-red-700 active:bg-indigo-950 font-mono' onClick={e => setOption(1)}>Resister New</p>
                     <button type='submit' className='w-[130px] xs:w-[160px] text-center rounded-md bg-red-900 py-2 hover:bg-red-700 active:bg-indigo-950 font-mono' >Login</button>
                 </div>
             </form>

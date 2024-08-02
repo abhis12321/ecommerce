@@ -7,13 +7,13 @@ import UserRegister from '../_components/UserRegister';
 
 export default function Page() {
   const USER = useAuth();
-  const [login , setLogin] = useState(true);
+  const [option , setOption] = useState(0);
 
   return (
     <>
     
       { 
-        !USER.user ? (login ? <UserLogin setLogin={setLogin} /> : <UserRegister setLogin={setLogin} />)  :  <UserProfile />
+        !USER.user ? (option == 0 ? <UserLogin setOption={setOption} /> : <UserRegister setOption={setOption} />)  :  <UserProfile />
       }
     </>
   )
