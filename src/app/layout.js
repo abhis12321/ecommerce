@@ -1,10 +1,6 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "./_components/Navbar";
-import Footer from "./_components/Footer";
 import AuthProvider from "./_components/AuthenticationProvider";
-
-const inter = Inter({ subsets: ["latin"] });
+import { cookies } from 'next/headers';
 
 export const metadata = {
   title: "Ecommerse",
@@ -12,16 +8,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const cookieStore = cookies();
+  const { value : initial_theme } = cookieStore.get('theme');
+  
   return (
     <html lang="en" className="">
-    <AuthProvider >
-      <body className="dark bg-gray-100 text-gray-950 dark:bg-gray-950 dark:text-white">
-          <NavBar />
-          <div className='p-1'  style={{ minHeight: "calc(100vh - 4rem)" }} >
-            {children}
-          </div>
-          <Footer />
-      </body>
+    <AuthProvider initial_theme={initial_theme}>
+      {children}
     </AuthProvider >
     </html>
   );

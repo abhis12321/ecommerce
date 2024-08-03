@@ -3,7 +3,7 @@ import React from 'react'
 export default function CountryCode({ setCountryCode, search, setSearch, setSearchable, searchable }) {
     return (
         <div className={`absolute z-50 top-[2.6rem] left-0 bg-slate-950 rounded-md ${!searchable > 0 && "hidden"} max-h-[375px] overflow-auto shadow-[0_0_5px_white] text-sm`} >
-            <input name='search' type="text" value={search} onChange={e => setSearch(e.target.value)} className='sticky top-0 left-0 w-full outline-none invalid:text-pink-600 font-semibold shadow-[0_0_3px_white] bg-blue-950 focus:bg-indigo-950 py-[6px] px-5 rounded-md ring-cyan-600 focus:ring-1 ' placeholder='search country code' required />
+            <input name='search' type="text" value={search} onChange={e => setSearch(e.target.value)} className='sticky top-0 left-0 w-full outline-none invalid:text-pink-600 font-semibold shadow-[0_0_3px_white] bg-blue-950 focus:bg-indigo-950 py-[6px] px-5 rounded-md ring-cyan-600 focus:ring-1 ' placeholder='search country code' />
             <div className="flex flex-col" onClick={e => setSearchable(false) | setSearch('')}>
                 <p className={`px-4 py-[6px] hover:bg-gray-200/10 cursor-default ${!("+93 (afghanistan)".includes(search?.toLowerCase())) && "hidden"}`} onClick={e => setCountryCode("+93 (Afghanistan)")}>+93 (Afghanistan)</p>
                 <p className={`px-4 py-[6px] hover:bg-gray-200/10 cursor-default ${!("+355 (albania)".includes(search?.toLowerCase())) && "hidden"}`} onClick={e => setCountryCode("+355 (Albania)")}>+355 (Albania)</p>

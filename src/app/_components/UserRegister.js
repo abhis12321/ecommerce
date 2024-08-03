@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import React, { useState } from 'react';
 import ImageForm from './ImageForm';
@@ -21,10 +20,12 @@ export default function UserRegister({setOption}) {
   const handleUserRegistration = e => {
     e.preventDefault();
     const body = { user_name, user_gender, user_role, email, password, country_code, mobile_no, user_address, img_url };
+
     axios.post('/api/users', body)
       .then(res => res.data)
-      .then(data => console.log(data))
-
+      .then(data => alert(data.message))
+      .catch(error => alert("bad request!" , error.message));
+      
     setRole('customer');
     setEmail('');
     setPassword("");
@@ -41,7 +42,7 @@ export default function UserRegister({setOption}) {
           <h1 className="flex rounded-lg text-3xl lg:text-4xl font-bold sm:font-extrabold text-center w-fit dark:text-white text-red-950 drop-shadow-[0_0_2px_black]">New Resistration</h1>
         </div>
         <div className="flex flex-row sm:flex-row gap-2 items-center justify-evenly w-[98%] max-w-[600px]">
-          <ImageForm img_url={img_url} setImgUrl={setImgUrl} />
+          <ImageForm img_url={img_url} setImgUrl={setImgUrl} border_radius={"rounded-full"}/>
           <div className="flex flex-col gap-2 items-center justify-center">
             <select name="status" value={user_gender} onChange={(e) => setGender(e.target.value)} className='outline-none invalid:text-pink-600 w-fit font-semibold shadow-[0_0_3px_white] bg-slate-950/50 hover:bg-slate-950/70 focus:bg-slate-950 py-[6px] px-3 rounded-md text-center ring-cyan-600 ring-2' >
               <option value="male" className=''>male</option>
@@ -70,7 +71,7 @@ export default function UserRegister({setOption}) {
 
         <textarea name='mobileNo' type="text" rows={4} value={user_address} onChange={e => setAddress(e.target.value)} className=' outline-none invalid:text-pink-600 w-[98%] max-w-[600px] font-semibold shadow-[0_0_3px_white] bg-slate-950/70 hover:bg-slate-950 focus:bg-slate-950 py-2 px-3 rounded-md mx-auto text-center focus:ring-cyan-600 focus:ring-2 ' placeholder='enter your current address' required ></textarea>
 
-        <div className="flex w-full items-center justify-between gap[2px] border-[2px] border-cyan-500 dark:border-cyan-600 rounded-lg overflow-hidden">
+        <div className="flex w-[98%] items-center justify-between gap[2px] border-[2px] border-cyan-500 dark:border-cyan-600 rounded-lg overflow-hidden">
           <div className="w-[50%] text-white/80 bg-orange-900 hover:bg-orange-700 active:bg-violet-900 p-2 text-center outline-none font-semibold cursor-pointer border-r-[2px] border-cyan-500 dark:border-cyan-600" onClick={e => setOption(0)}>cancel</div>
           <input type="submit" value={'Register'} className='w-[50%] text-white/80 bg-red-800 hover:bg-red-600 active:bg-violet-900 p-2 text-center outline-none font-semibold cursor-pointer' required />
         </div>

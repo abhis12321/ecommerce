@@ -45,7 +45,7 @@ const product_Schema = new mongoose.Schema({
     },
     img_url: {
         type:String,
-        default:'',
+        required:[true , 'data missing, Please choose some product images'],
     },
     available_stock:{
         type:Number,

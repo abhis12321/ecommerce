@@ -9,13 +9,7 @@ export default function Page() {
   useEffect(() => {
     axios.get('api/products')
       .then(res => res.data)
-      .then(result => {
-        if(result.success) {
-          setProducts(result.data);
-        } else {
-          alert(result.messgae);
-        }
-      })
+      .then(result => result.success ? setProducts(result.data) : alert(result.messgae))
       .catch(error => console.log(error.messgae))
   } , []);
 
@@ -23,7 +17,7 @@ return (
   <div className='flex items-center justify-center' style={{minHeight:'calc(100vh - 4rem'}}>
     {
       products ? 
-      <div className="flex gap-7">        
+      <div className="flex gap-7 flex-wrap items-center justify-around py-8">        
         {products.map((product , index) => <ProductCard key={index} product={product}/>)}
       </div>
       :

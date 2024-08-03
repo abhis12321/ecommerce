@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 import axios from 'axios';
@@ -6,27 +5,17 @@ import { useAuth } from './AuthenticationProvider';
 
 export default function UserLogin({setOption}) {
     const USER = useAuth();
-    const [role, setRole] = React.useState('customer');
+    const [user_role, setRole] = React.useState('customer');
     const [email, setEmail] = React.useState("");
     const [password, setPass] = React.useState("");
 
     const handleUserLogin = e => {
-        e.preventDefault();
-        console.log(email, password, role);
-
-        axios.patch('/api/users/', {
-            role,
-            email,
-            password,
-        })
+        e.preventDefault();        
+        let data = { user_role, email, password };
+        axios.patch('/api/users/', data)
             .then(res => res.data)
-            .then(data => {
-                if (data.success) {
-                    USER.login(data.user)
-                } else {
-                    alert(data.message)
-                }
-            });
+            .then(data => data.success ? USER.login(data.user) : alert(data.message))
+            .catch(error => alert("bad request" , error.message));
 
         setEmail('');
         setPass('');
@@ -41,7 +30,7 @@ export default function UserLogin({setOption}) {
 
                 <div className="flex flex-col sm:flex-row gap-2 items-center justify-evenly w-[95%] max-w-[600px]">
                     <h1 className="w-fit text-yellow-400 drop-shadow-[0_0_3px_black]">Login with your email-id & Password</h1>
-                    <select name="status" value={role} onChange={(e) => setRole(e.target.value)} className='outline-none invalid:text-pink-600 w-fit font-semibold shadow-[0_0_3px_white] bg-slate-950/50 hover:bg-slate-950/70 focus:bg-slate-950 py-2 px-3 rounded-md text-center ring-cyan-600 ring-2' >
+                    <select name="status" value={user_role} onChange={(e) => setRole(e.target.value)} className='outline-none invalid:text-pink-600 w-fit font-semibold shadow-[0_0_3px_white] bg-slate-950/50 hover:bg-slate-950/70 focus:bg-slate-950 py-2 px-3 rounded-md text-center ring-cyan-600 ring-2' >
                         <option value="seller" className=''>Seller Login</option>
                         <option value="admin" className=''>Admin Login</option>
                         <option value="customer" className=''>Customer Login</option>
