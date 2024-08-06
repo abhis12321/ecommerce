@@ -30,4 +30,7 @@
   .text-balance {
     text-wrap: balance;
   }
+  /* .inset-shadow {
+    box-shadow: 8px 10px 16px gray  inset , -8px -8px 8px rgb(233, 231, 231) inset;
+  } */
 }
