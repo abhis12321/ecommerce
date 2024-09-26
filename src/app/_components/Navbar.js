@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+"use client"
+import { useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,77 +10,57 @@ import {
   faUser,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import ToggleModeButton from "./ToggleModeButton";
 
 
 
 export default function NavBar() {
+  const _Ref = useRef();
+  const rightBarRef = useRef();
+
   const handleRight = () => {
-    document.querySelector(".right-navbar").classList.toggle("hidden");
-    document.querySelector(".cutX").classList.toggle("hidden");
-    document.querySelector(".hamberger").classList.toggle("hidden");
+    _Ref.current.classList.toggle("hidden");
+    rightBarRef.current.classList.toggle("hidden");
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-gray-500 to-lime-900 dark:from-slate-950 dark:to-lime-900 text-gray-300 font-semibold flex items-center justify-between h-16 px-4 xm:px-8 overflow-hidden">
+    <div className="w-full sticky top-0 left-0 px-8 h-[60px] flex items-center justify-between bg-gray-600/10 backdrop-blur-md">
       <div className="">
-        <Link href={'/'} className="font-extrabold text-3xl text-center rounded-md text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 w-fit leading-[4rem] drop-shadow-[0_0_1px_black]"><span>E</span>commerse</Link>
+        <Link href={'/'} className="text-2xl font-extrabold font-serif">Ecommerse</Link>
       </div>
+      <FontAwesomeIcon icon={faBars} size="sm" className="h-6 hidden cursor-pointer" ref={_Ref} onClick={handleRight} />
+      <div className="h-[100vh] w-[160px] lg:w-fit lg:h-fit flex gap-3 lg:gap-8 items-center flex-col lg:flex-row bg-white lg:bg-transparent fixed lg:static top-0 right-0 shadow-[0_0_1px_gray] lg:shadow-none" ref={rightBarRef}>
+        <div className="mt-[18px] mx-auto" onClick={handleRight}>
+          <FontAwesomeIcon size="xs" icon={faXmark} className="h-6 lg:hidden cursor-pointer" />
+        </div>
 
-      <div className="right-navbar fixed lg:static top-0 right-0 hidden lg:flex gap-8 bg-gradient-to-l lg:[background:none] from-gray-500 to-lime-900 dark:from-gray-950 dark:to-lime-900 min-h-[100vh] lg:min-h-fit z-10 items-center min-w-[170px] dark:font-normal font-medium">
-        <div
-          className="text-4xl py-2 text-center cursor-pointer"
+        <Link
+          href="/"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[10px] lg:pb-2 px-4"
         >
-          <FontAwesomeIcon size="xs" icon={faXmark} className="hidden cutX hover:text-red-800"
-            onClick={handleRight} />
-        </div>
+          <FontAwesomeIcon size="xs" icon={faHome} className="h-5" />
+        </Link>
 
-        <div className="w-full lg:w-fit flex items-center justify-center">
-          <Link
-            href="/"
-            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
-          >
-            <FontAwesomeIcon size="xs" icon={faHome} className="text-xl w-full " />
-          </Link>
-        </div>
+        <Link
+          href="/blogs"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[10px] lg:pb-2 px-4"
+        >
+          <FontAwesomeIcon size="xs" icon={faBlog} className="h-5" />
+        </Link>
 
-        <div className="w-full lg:w-fit flex items-center justify-center">
-          <Link
-            href="/blogs"
-            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
-          >
-            <FontAwesomeIcon size="xs" icon={faBlog} className="text-xl" />
-          </Link>
-        </div>
+        <Link
+          href="/profile"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[10px] lg:pb-2 px-[18px]"
+        >
+          <FontAwesomeIcon size="xs" icon={faUser} className="h-5 scale-x-110" />
+        </Link>
 
-        <div className="w-full lg:w-fit flex items-center justify-center">
-          <Link
-            href="/profile"
-            className="w-full text-3xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
-          >
-            <FontAwesomeIcon size="xs" icon={faUser} className="text-xl" />
-          </Link>
-        </div>
+        <Link
+          href="/cart"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[12px] lg:pb-2 px-[15px]"
+        >
+          <FontAwesomeIcon size="xs" icon={faCartShopping} className="h-5" />
+        </Link>
 
-        <div className="w-full lg:w-fit flex items-center justify-center">
-          <Link
-            href="/cart"
-            className="w-full text-2xl overflow-hidden flex items-center justify-center py-4 lg:py-3 lg:px-4 lg:rounded-lg hover:bg-slate-950/30 hover:text-white dark:hover:bg-gray-400/30 hover:lgshadow-[0_0_3px_gray] lg:hover:ring-2 ring-gray-300"
-          >
-            <FontAwesomeIcon size="xs" icon={faCartShopping} className="text-xl" />
-          </Link>
-        </div>
-
-        <ToggleModeButton />
-      </div>
-
-      <div className="lg:hidden text-3xl py-2">
-        <FontAwesomeIcon
-          icon={faBars}
-          size="sm"
-          className="hamberger cursor-pointer text-gray-200"
-          onClick={handleRight}
-        />
       </div>
     </div>
   );

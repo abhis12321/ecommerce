@@ -8,12 +8,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const cookieStore = cookies();
-  const { value : initial_theme } = cookieStore.get('theme');
   
   return (
     <html lang="en" className="">
-    <AuthProvider initial_theme={initial_theme}>
+    <AuthProvider >
       {children}
     </AuthProvider >
     </html>

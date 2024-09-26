@@ -4,9 +4,8 @@ import NavBar from "./Navbar";
 import Footer from "./Footer";
 const user_context = React.createContext();
 
-export default function AuthProvider({ children , initial_theme}) {
+export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [theme , setTheme] = useState(initial_theme);
   
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("ecommerse-user"));
@@ -23,17 +22,17 @@ export default function AuthProvider({ children , initial_theme}) {
     setUser(null);
   };
 
-  const value = { user, login, logout , theme , setTheme };
+  const value = { user, login, logout };
 
 
   return (
     <user_context.Provider value={value}>
-    <body className={`${theme} bg-gray-100 text-gray-950 dark:bg-gray-950 dark:text-white`}>
+    <body className={`bg-gray-100 text-gray-950`}>
         <NavBar />
-        <div className='p-1'  style={{ minHeight: "calc(100vh - 4rem)" }} >
+        {/* <div className='p-1'  style={{ minHeight: "calc(100vh - 4rem)" }} >
           {children}
-        </div>
-        <Footer />
+        </div> */}
+        {/* <Footer /> */}
     </body>
     </user_context.Provider>
   );
