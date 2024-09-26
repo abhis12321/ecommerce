@@ -27,12 +27,12 @@ export default function AuthProvider({ children }) {
 
   return (
     <user_context.Provider value={value}>
-    <body className={`bg-gray-100 text-gray-950`}>
+    <body className={`min-h-screen flex flex-col justify-between bg-gray-100 text-gray-950`}>
         <NavBar />
         {/* <div className='p-1'  style={{ minHeight: "calc(100vh - 4rem)" }} >
           {children}
         </div> */}
-        {/* <Footer /> */}
+        <Footer />
     </body>
     </user_context.Provider>
   );

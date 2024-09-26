@@ -25,10 +25,10 @@ export default function NavBar() {
   return (
     <div className="w-full sticky top-0 left-0 px-8 h-[60px] flex items-center justify-between bg-gray-600/10 backdrop-blur-md">
       <div className="">
-        <Link href={'/'} className="text-2xl font-extrabold font-serif">Ecommerse</Link>
+        <Link href={'/'} className="text-2xl font-extrabold font-serif">Ecommerce</Link>
       </div>
-      <FontAwesomeIcon icon={faBars} size="sm" className="h-6 hidden cursor-pointer" ref={_Ref} onClick={handleRight} />
-      <div className="h-[100vh] w-[160px] lg:w-fit lg:h-fit flex gap-3 lg:gap-8 items-center flex-col lg:flex-row bg-white lg:bg-transparent fixed lg:static top-0 right-0 shadow-[0_0_1px_gray] lg:shadow-none" ref={rightBarRef}>
+      <FontAwesomeIcon icon={faBars} size="sm" className="h-6 md:hidden cursor-pointer" ref={_Ref} onClick={handleRight} />
+      <div className="h-[100vh] w-[160px] lg:w-fit lg:h-fit hidden flex lg:flex gap-3 lg:gap-8 items-center flex-col lg:flex-row bg-white lg:bg-transparent fixed lg:static top-0 right-0 shadow-[0_0_1px_gray] lg:shadow-none" ref={rightBarRef}>
         <div className="mt-[18px] mx-auto" onClick={handleRight}>
           <FontAwesomeIcon size="xs" icon={faXmark} className="h-6 lg:hidden cursor-pointer" />
         </div>
