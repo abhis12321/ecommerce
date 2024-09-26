@@ -37,28 +37,28 @@ export default function NavBar() {
 
         <Link
           href="/"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[10px] lg:pb-2 px-4"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-4"
         >
           <FontAwesomeIcon size="xs" icon={faHome} className="h-5" />
         </Link>
 
         <Link
           href="/blogs"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[10px] lg:pb-2 px-4"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-4"
         >
           <FontAwesomeIcon size="xs" icon={faBlog} className="h-5" />
         </Link>
 
         <Link
           href="/profile"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[10px] lg:pb-2 px-[18px]"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-[18px]"
         >
           <FontAwesomeIcon size="xs" icon={faUser} className="h-5 scale-x-110" />
         </Link>
 
         <Link
           href="/cart"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 py-[14px] lg:pt-[12px] lg:pb-2 px-[15px]"
+          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[12px] lg:pb-2 px-[15px]"
         >
           <FontAwesomeIcon size="xs" icon={faCartShopping} className="h-5" />
         </Link>

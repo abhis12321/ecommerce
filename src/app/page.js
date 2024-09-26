@@ -19,10 +19,6 @@ export default function Page() {
       .catch(error => console.log(error.messgae))
   }, []);
 
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
-
   return (
     <div className='flex items-center justify-center' style={{ minHeight: 'calc(100vh - 4rem' }}>
       {
