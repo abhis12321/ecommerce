@@ -1,21 +1,30 @@
-import React from 'react';
 import Link from 'next/link';
 import axios from 'axios';
-import { useAuth } from './AuthenticationProvider';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from './redux/userSlice';
 
 export default function UserLoginForm({ setOption }) {
-    const USER = useAuth();
-    const [user_role, setRole] = React.useState('customer');
-    const [email, setEmail] = React.useState("");
-    const [password, setPass] = React.useState("");
+    const [user_role, setRole] = useState('customer');
+    const [email, setEmail] = useState("");
+    const [password, setPass] = useState("");
+    const dispatch = useDispatch();
 
     const handleUserLogin = (e) => {
         e.preventDefault();
+        setOption(4);
         let data = { user_role, email, password };
         axios.patch('/api/users/', data)
             .then(res => res.data)
-            .then(data => data.success ? USER.login(data.user) : alert(data.message))
-            .catch(error => alert("bad request", error.message));
+            .then(data => {
+                if(data.success) {
+                    dispatch(login(data.user));
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => alert("bad request", error.message))
+            .then(() => setOption(1));
 
         setEmail('');
         setPass('');
@@ -25,7 +34,7 @@ export default function UserLoginForm({ setOption }) {
 
     return (
         <form onSubmit={handleUserLogin} className='w-[94%] max-w-[700px] py-4 rounded-xl flex flex-col gap-1 items-center' autoComplete='on'>
-            <select name="status" value={user_role} onChange={(e) => setRole(e.target.value)} className='w-[96%] outline-none invalid:text-pink-600 font-semibold bg-slate-950/10 hover:bg-slate-950/15 focus:bg-blue-800/20 shadow-[0_0_2px_gray_inset] py-2 px-3 rounded-md text-center' >
+            <select name="status" value={user_role} onChange={(e) => setRole(e.target.value)} className='w-[96%] outline-none invalid:text-pink-600 font-semibold bg-slate-950/10 hover:bg-slate-950/15 focus:bg-blue-800/20 text-gray-600 shadow-[0_0_2px_gray_inset] py-2 px-3 rounded-md text-center' >
                 <option value="seller" className=''>Seller Login</option>
                 <option value="admin" className=''>Admin Login</option>
                 <option value="customer" className=''>Customer Login</option>

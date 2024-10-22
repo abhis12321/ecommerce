@@ -1,13 +1,15 @@
 "use client"
-import React, { useState } from 'react'
+import { useState } from 'react'
 import UserLoginForm from '../_components/UserLoginForm'
-import { useAuth } from '../_components/AuthenticationProvider';
 import UserProfile from '../_components/UserProfile';
 import UserRegistrationForm from '../_components/UserRegistrationForm';
+import { useSelector } from 'react-redux';
+import Loading from '../_components/Loading';
 
 export default function Page() {
-  const { user } = useAuth();
   const [option, setOption] = useState(1);
+  const user = useSelector(state => state.user.value);
+
   return (
     <div className='min-h-screen flex flex-col items-center justify-center p-4'>
       {
@@ -19,7 +21,7 @@ export default function Page() {
               <div className={`px-4 pt-3 pb-2 text-center cursor-pointer ${option == 0 ? "border-b-[2.5px] border-orange-600 text-orange-600" : "text-gray-600"}`} onClick={() => setOption(0)}>Register</div>
               <div className={`px-4 pt-3 pb-2 text-center cursor-pointer ${option == 1 ? "border-b-[2.5px] border-orange-600 text-orange-600" : "text-gray-600"}`} onClick={() => setOption(1)}>Login</div>
             </div>
-            <div className="flex-1 flex justify-center items-center">
+            <div className="flex-1 flex justify-center itemscenter">
               {
                 option == 1 ?
                   <UserLoginForm setOption={setOption}/>
@@ -28,6 +30,8 @@ export default function Page() {
             </div>
           </div>
       }
+
+      {option === 4 && <Loading />}
     </div>
   )
 }

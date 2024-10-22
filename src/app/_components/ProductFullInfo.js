@@ -1,7 +1,17 @@
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
-import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from './redux/cartSlice';
+import { counter } from '@fortawesome/fontawesome-svg-core';
 
 export default function ProductFullInfo({ product, handleFullInfo }) {
+    const dispatch = useDispatch();
+    const handleAddToCart = () => {
+        const item = { ...product , count: 1 };
+        dispatch(addToCart(item));
+    }
+
     return (
         <div className='min-h-[100vh] w-full max-w-[800px] bg-blue-50 flex items-center justify-center'>
             <div className="p-4 sm:p-8 bg-white rounded-lg relative flex flex-col justify-between gap-6 shadow-[0px_0px_15px_gray_inset] text-gray-900">
@@ -11,7 +21,10 @@ export default function ProductFullInfo({ product, handleFullInfo }) {
                     <h1 className="text-2xl font-bold">{product.product_name} <span className="text-xs font-normal">({ product.product_category })</span></h1>
                     <h1 className="font-bold"><span className="text-gray-500">Rs. </span>{product.price}</h1>
                 </div>
-                <h1 className=""><span className="text-gray-500">Available stocks : </span>{product.available_stock}</h1>
+                <div className="w-full flex items-center justify-between">
+                <div className=""><span className="text-gray-500">Available stocks : </span>{product.available_stock}</div>
+                <FontAwesomeIcon size='xs' icon={faCartPlus} className='h-6 cursor-pointer text-red-950 hover:text-blue-900' onClick={handleAddToCart}/>
+                </div>
                 <h1 className="font-mono font-semibold">{product.product_description}</h1>
             </div>
         </div>

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react'
 
 export default function ImageForm({ img_url, setImgUrl, border_radius }) {
     const selectImage = (e) => {

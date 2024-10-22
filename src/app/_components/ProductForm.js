@@ -1,6 +1,6 @@
 "use client"
 import axios from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuth } from './AuthenticationProvider';
 import ImageForm from './ImageForm';
 

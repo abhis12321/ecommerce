@@ -1,6 +1,5 @@
 import "./globals.css";
-import AuthProvider from "./_components/AuthenticationProvider";
-import { cookies } from 'next/headers';
+import Wrapper from "./_components/Wrapper";
 
 export const metadata = {
   title: "Ecommerse",
@@ -8,12 +7,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  
+
   return (
     <html lang="en" className="">
-    <AuthProvider >
-      {children}
-    </AuthProvider >
+      <Wrapper >
+        {children}
+      </Wrapper>
     </html>
   );
 }

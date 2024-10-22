@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductCard from './_components/ProductCard'
 import axios from 'axios';
 import ProductFullInfo from './_components/ProductFullInfo';
@@ -15,8 +15,8 @@ export default function Page() {
   useEffect(() => {
     axios.get('api/products')
       .then(res => res.data)
-      .then(result => result.success ? setProducts(result.data) : alert(result.messgae))
-      .catch(error => console.log(error.messgae))
+      .then(data => data.success ? setProducts(data.products) : alert(data.messgae))
+      .catch(error => console.error(error.messgae))
   }, []);
 
   return (
@@ -26,7 +26,7 @@ export default function Page() {
           :
           products ?
             <div className="flex gap-7 flex-wrap items-center justify-around py-8">
-              {products.map((product, index) => <ProductCard key={index} product={product} handleFullInfo={() => handleFullInfo(product)} />)}
+              {products.map((product, index) => <ProductCard key={product._id} product={product} handleFullInfo={() => handleFullInfo(product)} />)}
             </div>
             :
             <div className="mx-auto h-40 w-40 rounded-full animate-spin border-t-4 border-slate-900 dark:border-white flex items-center justify-center">

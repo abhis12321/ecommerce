@@ -19,10 +19,6 @@ const userSchema = new mongoose.Schema({
             message:"Invalid value, Please select a correct gender"
         }
     },
-    user_address: {
-        type:String,
-        required:[true , "data missing, Please enter your address"],        
-    },
     country_code:{
         type:String,
         default:"+91",
