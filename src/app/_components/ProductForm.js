@@ -1,8 +1,8 @@
 "use client"
 import axios from 'axios';
 import { useState } from 'react';
-import { useAuth } from './AuthenticationProvider';
 import ImageForm from './ImageForm';
+import { useAuth } from './AuthenticationProvider';
 
 export default function ProductForm() {
   const USER = useAuth();

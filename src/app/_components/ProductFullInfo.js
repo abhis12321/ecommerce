@@ -1,9 +1,8 @@
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import { useDispatch } from 'react-redux'
+import Image from 'next/image';
+import { useDispatch } from 'react-redux';
 import { addToCart } from './redux/cartSlice';
-import { counter } from '@fortawesome/fontawesome-svg-core';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function ProductFullInfo({ product, handleFullInfo }) {
     const dispatch = useDispatch();

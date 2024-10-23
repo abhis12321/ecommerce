@@ -1,7 +1,7 @@
 "use client"
 import { useSelector } from 'react-redux';
 import CartItemCard from '../_components/CartItemCard';
-import UserLoginForm from '../_components/UserLoginForm';
+import LoginRegisterContainer from '../_components/LoginRegisterContainer';
 
 export default function Page() {
   const cart = useSelector(state => state.cart.value);
@@ -10,13 +10,13 @@ export default function Page() {
   return (
     <div className='w-full flex flex-col items-center justify-center gap-[10px] p-2'>
       {
-        user ? 
-        (cart && cart.length > 0) ?
-        cart.map(product =>  <CartItemCard product={product} key={product._id} />)
-        :
-        <div className="font-bold text-2xl text-gray-900">Your cart is Empty!</div>
-        :
-        <UserLoginForm />
+        user ?
+          (cart && cart.length > 0) ?
+            cart.map(product => <CartItemCard product={product} key={product._id} />)
+            :
+            <div className="font-bold text-2xl text-gray-900">Your cart is Empty!</div>
+          :
+          <LoginRegisterContainer />
       }
     </div>
   )

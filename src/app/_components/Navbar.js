@@ -1,6 +1,6 @@
 "use client"
-import { useRef } from "react";
-import Link from "next/link";
+import Link from "next/link"
+import { useRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,

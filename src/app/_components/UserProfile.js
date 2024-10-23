@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useDispatch, useSelector } from 'react-redux';
 import { logout } from './redux/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function UserProfile() {
     const user = useSelector(state => state.user.value);

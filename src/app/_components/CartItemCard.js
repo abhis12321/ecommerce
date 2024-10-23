@@ -1,8 +1,8 @@
-import { faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "./redux/cartSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 export default function CartItemCard({ product }) {
     const dispatch = useDispatch();
