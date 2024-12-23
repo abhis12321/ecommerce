@@ -7,7 +7,7 @@ export default function Page() {
   const user = useSelector(state => state.user.value);
 
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center p-4'>
+    <div className='h-nav flex flex-col items-center justify-center'>
       {
         user ?
           <UserProfile user={user} />

@@ -16,58 +16,60 @@ import { login } from "@/redux/userSlice";
 
 
 export default function NavBar({ user }) {
-  const _Ref = useRef();
   const rightBarRef = useRef();
   const dispatch = useDispatch();
   dispatch(login(user));
 
+  const handleHideRight = () => {
+    if (!rightBarRef.current.classList.contains("-right-20")) {
+      handleRight();
+    }
+  };
+
   const handleRight = () => {
-    _Ref.current.classList.toggle("hidden");
-    rightBarRef.current.classList.toggle("hidden");
+    rightBarRef.current.classList.toggle("-right-20")
+    rightBarRef.current.classList.toggle("right-1")
   };
 
   return (
-    <div className="w-full sticky z-[500] top-0 left-0 px-8 h-[60px] flex items-center justify-between bg-gray-600/10 backdrop-blur-md">
+    <div className="h-16 py-2 px-[4%] sm:px-8 md:px-10 lg:px-12 sticky top-0 left-0 z-[90] w-full bg-white text-gray-500 font-semibold flex items-center justify-between shadow-[0_0_1px_black]">
       <div className="">
-        <Link href={'/'} className="text-2xl font-extrabold font-serif">Ecommerce</Link>
+        <Link href={'/'} className="font-extrabold italic text-3xl text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-gray-400 w-fit overflow-hidden px-1 font-serif">Ecommerce</Link>
       </div>
 
-      <FontAwesomeIcon icon={faBars} size="sm" className="h-6 lg:hidden cursor-pointer" ref={_Ref} onClick={handleRight} />
-
-      <div className="h-[100vh] w-[160px] lg:w-fit lg:h-fit hidden flex lg:flex gap-3 lg:gap-8 items-center flex-col lg:flex-row bg-white lg:bg-transparent fixed lg:static top-0 right-0 shadow-[0_0_1px_gray] lg:shadow-none" ref={rightBarRef}>
-        <div className="mt-[18px] mx-auto" onClick={handleRight}>
-          <FontAwesomeIcon size="xs" icon={faXmark} className="h-6 lg:hidden cursor-pointer" />
-        </div>
-
+      <div className="min-w-[60px] lg:py-[1px] lg:px-1 rounded-[1.4rem] lg:rounded-none fixed lg:static top-[20vh] -right-20 font-medium shadow-[-.3px_.3px_1.5px_black_inset] lg:shadow-none duration-300 backdrop-blur-md lg:backdrop-blur-none overflow-hidden lg:overflow-auto flex flex-col lg:flex-row items-center justify-center lg:gap-8" ref={rightBarRef}>
         <Link
           href="/"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-4"
+          className="w-full text-2xl overflow-hidden flex items-center justify-center lg:rounded-lg hover:text-cyan-700 hover:ring-1 ring-cyan-700 hover:bg-cyan-700/20 py-4 lg:py-[12px] lg:px-[18px]"
         >
-          <FontAwesomeIcon size="xs" icon={faHome} className="h-5" />
+          <FontAwesomeIcon size="xs" icon={faHome} className="h-7 w-7" />
         </Link>
 
         <Link
           href="/blogs"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-4"
+          className="w-full text-2xl overflow-hidden flex items-center justify-center lg:rounded-lg hover:text-cyan-700 hover:ring-1 ring-cyan-700 hover:bg-cyan-700/20 py-4 lg:py-[12px] lg:px-[18px]"
         >
-          <FontAwesomeIcon size="xs" icon={faBlog} className="h-5" />
+          <FontAwesomeIcon size="xs" icon={faBlog} className="h-7 w-7" />
         </Link>
 
         <Link
           href="/dashboard"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-[18px]"
+          className="w-full text-2xl overflow-hidden flex items-center justify-center lg:rounded-lg hover:text-cyan-700 hover:ring-1 ring-cyan-700 hover:bg-cyan-700/20 py-4 lg:py-[13px] lg:px-[18px]"
         >
-          <FontAwesomeIcon size="xs" icon={faUser} className="h-5 scale-x-110" />
+          <FontAwesomeIcon size="xs" icon={faUser} className="h-[26px] w-7" />
         </Link>
 
         <Link
           href="/cart"
-          className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[12px] lg:pb-2 px-[15px]"
+          className="w-full text-2xl overflow-hidden flex items-center justify-center lg:rounded-lg hover:text-cyan-700 hover:ring-1 ring-cyan-700 hover:bg-cyan-700/20 py-4 lg:py-[12px] lg:px-[18px]"
         >
-          <FontAwesomeIcon size="xs" icon={faCartShopping} className="h-5" />
+          <FontAwesomeIcon size="xs" icon={faCartShopping} className="h-7 w-7" />
         </Link>
-
       </div>
+
+      <button className="lg:hidden text-3xl py-2" onBlur={handleHideRight}>
+        <FontAwesomeIcon icon={faBars} size="sm" className="h-6 lg:hidden cursor-pointer" onClick={handleRight} />
+      </button>
     </div>
   );
 }

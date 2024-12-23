@@ -9,7 +9,7 @@ export default function Wrapper({ children, user }) {
     <Provider store={store} >
       <body className={`min-h-screen flex flex-col justify-between bg-gray-100 text-gray-950`}>
         <NavBar user={user} />
-        <div className='h-nav p-1' >
+        <div className='h-nav' >
           {children}
         </div>
         <Footer />
