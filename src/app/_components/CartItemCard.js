@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "./redux/cartSlice";
+import { addToCart, removeFromCart } from "@/redux/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 

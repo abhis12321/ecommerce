@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Product } from "../lib/models/ProductModel";
+import { Product } from "@/lib/models/ProductModel";
 import { cookies } from 'next/headers';
 
 export async function GET() {

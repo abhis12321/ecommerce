@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { logout } from './redux/userSlice';
+import { logout } from '@/redux/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function UserProfile() {

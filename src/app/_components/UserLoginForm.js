@@ -2,7 +2,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from './redux/userSlice';
+import { login } from '@/redux/userSlice';
 
 export default function UserLoginForm({ setOption }) {
     const [user_role, setRole] = useState('customer');

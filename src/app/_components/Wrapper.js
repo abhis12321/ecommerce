@@ -1,7 +1,7 @@
 "use client"
 import NavBar from './Navbar'
 import Footer from './Footer'
-import { store } from './redux/store'
+import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
 
 export default function Wrapper({ children }) {
