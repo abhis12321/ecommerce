@@ -33,6 +33,7 @@ export async function PUT(req) {
         return NextResponse.json({ message: error.message, success: false });
     }
 }
+
 export async function PATCH(req) {
     try {
         const data = await req.json();
