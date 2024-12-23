@@ -1,5 +1,6 @@
 import "./globals.css";
 import Wrapper from "./_components/Wrapper";
+import { getJWTUser } from "@/utils/getJWTUser";
 
 export const metadata = {
   title: "Ecommerse",
@@ -7,10 +8,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
+  const user = getJWTUser();
   return (
     <html lang="en" className="">
-      <Wrapper >
+      <Wrapper user={user}>
         {children}
       </Wrapper>
     </html>

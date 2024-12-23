@@ -25,7 +25,6 @@ export async function POST(req , res) {
 export async function PUT(req) {
     try {
         let { theme } = await req.json();
-        console.log(theme);
         cookies().set("theme" , theme);
         return NextResponse.json({ success:true , message:"theme updated." });
     } catch(error) {

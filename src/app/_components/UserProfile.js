@@ -8,7 +8,7 @@ export default function UserProfile() {
     const dispatch = useDispatch();
     
     return (
-        <div className="w-[96%] max-w-[800px] flex flex-col gap-5 items-center justify-center bg-no-repeat bg-center bg-contain " style={{ minHeight: "calc(100vh - 4rem)" }}>
+        <div className="w-[96%] max-w-[800px] h-nav bg-red-300 flex flex-col gap-5 items-center justify-center bg-no-repeat bg-center bg-contain " style={{ minHeight: "calc(100vh - 4rem)" }}>
             <div className='w-[98%] max-w-[700px] min-h-[50vh] text-gray-800 bg-white shadow-[0_0_7px_black] flex flex-col gap-3 items-center justify-evenly px-1 py-4 rounded-2xl'>
                 <h1 className='text-yellow-400 drop-shadow-[0_0_3px_pink]'>You are Welcome, At Your Profile</h1>
                 <Image src={user?.img_url ? user?.img_url : "/profileImg.jpg"} alt='logo' className='h-[250px] w-[250px] xs:h-[300px] xs:w-[300px] rounded-full' width={300} height={300}/>

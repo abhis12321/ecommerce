@@ -38,10 +38,11 @@ export async function PATCH(req) {
         const data = await req.json();
         const { email, password, user_role } = data;
         const user = (await User.findOne({ email, password, user_role })).toObject();
+        delete user.password;
         setJWTUser(user);
         return NextResponse.json({ user, success: true });
     } catch (error) {
-        console.log(error.message)
+        // console.log(error.message)
         return NextResponse.json({ message: "Invalid Login Credentials", success: false });
     }
 }

@@ -10,12 +10,16 @@ import {
   faUser,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { login } from "@/redux/userSlice";
 
 
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   const _Ref = useRef();
   const rightBarRef = useRef();
+  const dispatch = useDispatch();
+  dispatch(login(user));
 
   const handleRight = () => {
     _Ref.current.classList.toggle("hidden");
@@ -50,7 +54,7 @@ export default function NavBar() {
         </Link>
 
         <Link
-          href="/profile"
+          href="/dashboard"
           className="w-full lg:w-fit text-center lg:rounded-md hover:bg-gray-600/20 pt-[19px] pb-[14px] lg:pt-[10px] lg:pb-2 px-[18px]"
         >
           <FontAwesomeIcon size="xs" icon={faUser} className="h-5 scale-x-110" />
