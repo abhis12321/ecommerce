@@ -36,7 +36,7 @@ export default function NavBar({ user, cartItems }) {
   };
 
   return (
-    <div className="h-16 py-2 px-[4%] sm:px-8 md:px-10 lg:px-12 sticky top-0 left-0 z-[90] w-full bg-white text-gray-500 font-semibold flex items-center justify-between shadow-[0_0_1px_black]">
+    <div className="h-16 py-2 px-[4%] sm:px-8 md:px-10 lg:px-12 sticky top-0 left-0 z-[90] w-full bg-white text-gray-500 font-semibold flex items-center justify-between shadow-[0_0_.03px_black_inset]">
       <div className="">
         <Link href={'/'} className="font-extrabold italic text-3xl text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-gray-400 w-fit overflow-hidden px-1 font-serif">Ecommerce</Link>
       </div>

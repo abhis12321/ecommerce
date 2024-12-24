@@ -2,10 +2,10 @@
 import axios from 'axios';
 import { useState } from 'react';
 import ImageForm from './ImageForm';
-import { useAuth } from './AuthenticationProvider';
+import { useSelector } from 'react-redux';
 
 export default function ProductForm() {
-  const USER = useAuth();
+  const user = useSelector(state => state.user.value);
   const [product_name, setName] = useState('');
   const [product_description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -15,7 +15,7 @@ export default function ProductForm() {
 
   const handleNewProduct = e => {
     e.preventDefault();
-    let data = { product_name, product_description, price, product_category, available_stock, seller_id: USER.user._id, img_url };
+    let data = { product_name, product_description, price, product_category, available_stock, seller_id: user._id, img_url };
     
     axios.post('/api/products', data)
       .then(res => res.data)

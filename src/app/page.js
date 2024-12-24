@@ -1,7 +1,8 @@
 "use client"
-import { useEffect, useState } from 'react'
-import ProductCard from './_components/ProductCard'
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import ProductCard from './_components/ProductCard'
+import ImageSlider from './_components/ImageSlider';
 import ProductFullInfo from './_components/ProductFullInfo';
 
 export default function Page() {
@@ -20,7 +21,8 @@ export default function Page() {
   }, []);
 
   return (
-    <div className='flex items-center justify-center' style={{ minHeight: 'calc(100vh - 4rem' }}>
+    <div className='flex flex-col items-center justify-center' style={{ minHeight: 'calc(100vh - 4rem' }}>
+      <ImageSlider />
       {
         showFullInfo ? <ProductFullInfo product={showFullInfo} handleFullInfo={() => handleFullInfo()} />
           :
