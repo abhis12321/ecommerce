@@ -6,7 +6,7 @@ import LoginRegisterContainer from '../_components/LoginRegisterContainer';
 export default function Page() {
   const cart = useSelector(state => state.cart.value);
   const user = useSelector(state => state.user.value);
-  console.log(cart);
+  
   return (
     <div className='w-full flex flex-col items-center justify-center gap-[10px] p-2'>
       {

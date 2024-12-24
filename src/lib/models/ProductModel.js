@@ -23,10 +23,6 @@ const product_Schema = new mongoose.Schema({
             message:"Invalid value, Please select correct category"
         }
     },
-    // brand_id:{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     required:[true , 'data missing, Please enter product brand name'],
-    // },
     seller_id:{
         type:mongoose.Schema.Types.ObjectId,
         required:[true , 'data missing, Please enter product seller'],

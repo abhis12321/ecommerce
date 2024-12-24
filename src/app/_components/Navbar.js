@@ -1,6 +1,9 @@
 "use client"
-import Link from "next/link"
-import { useRef } from "react"
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "@/redux/userSlice";
+import { addToCart } from "@/redux/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -8,17 +11,18 @@ import {
   faCartShopping,
   faHome,
   faUser,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
-import { login } from "@/redux/userSlice";
 
 
 
-export default function NavBar({ user }) {
+export default function NavBar({ user, cartItems }) {
   const rightBarRef = useRef();
   const dispatch = useDispatch();
-  dispatch(login(user));
+
+  useEffect(() => {
+    dispatch(login(user));
+    dispatch(addToCart(cartItems));
+  }, []);
 
   const handleHideRight = () => {
     if (!rightBarRef.current.classList.contains("-right-20")) {

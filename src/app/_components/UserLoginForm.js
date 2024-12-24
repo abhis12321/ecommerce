@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '@/redux/userSlice';
+import { addToCart } from '@/redux/cartSlice';
 
 export default function UserLoginForm({ setOption }) {
     const [user_role, setRole] = useState('customer');
@@ -19,6 +20,9 @@ export default function UserLoginForm({ setOption }) {
             .then(data => {
                 if(data.success) {
                     dispatch(login(data.user));
+                    axios.get("/api/cartitem")
+                        .then(res => res.data)
+                        .then(data => dispatch(addToCart(data.cartItems)))
                 } else {
                     alert(data.message);
                 }

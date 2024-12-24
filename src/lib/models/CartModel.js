@@ -12,7 +12,7 @@ const cart_schema = new mongoose.Schema({
         required:[true , "user id is missing."],
     },  
     product_quantity:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Number,
         required:[true , "product quantity is missing."],
     },
 })

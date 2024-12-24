@@ -1,15 +1,12 @@
 import { NextResponse } from "next/server";
 import { getJWTUser } from "@/utils/getJWTUser";
 import { CartItem } from "@/lib/models/CartModel";
+import { getCartItems } from "@/utils/getCartItems";
 
 
 export const GET = async () => {
     try {
-        const user = getJWTUser();
-        if (!user) {
-            return NextResponse.json({}, { status: 404 })
-        }
-        const cartItems = await CartItem.find({ user_id: user?._id });
+        const cartItems = await getCartItems();
         return NextResponse.json({ cartItems });
     } catch (error) {
         return NextResponse.json({}, { status: 404 });
@@ -19,10 +16,39 @@ export const GET = async () => {
 export const POST = async (req) => {
     try {
         const { user_id, product_id, product_quantity } = await req.json();
-        const nvcartItem = new CartItem({ user_id, product_id, product_quantity });
-        await nvcartItem.save();
+        const cartItem = await getProduct({ user_id, product_id });
+        cartItem.product_quantity += product_quantity;
+        await cartItem.save();
         return NextResponse.json({ success: true, message: "product added to your cart" });
     } catch (error) {
+        // console.log(error.message)
+        return NextResponse.json({}, { status: 404 });
+    }
+}
+
+const getProduct = async ({ user_id, product_id }) => {
+    const oldCartItem = await CartItem.findOne({ user_id, product_id });
+    if (oldCartItem) {
+        return oldCartItem;
+    }
+    return new CartItem({ user_id, product_id, product_quantity: 0 });
+}
+
+
+
+export const DELETE = async (req) => {
+    try {
+        const { searchParams } = new URL(req.url);
+        const product_id = searchParams.get('product_id');
+        const user_id = searchParams.get('user_id');
+        const user = getJWTUser();
+        if (!user || !user_id || !product_id || user?._id != user_id) {
+            return NextResponse.json({}, { status: 404 });
+        }
+        await CartItem.findOneAndDelete({ product_id, user_id });
+        return NextResponse.json({ message: "product deleted from your cart", success: true }, { status: 200 });
+    } catch (error) {
+        // console.log(error.message)
         return NextResponse.json({}, { status: 404 });
     }
 }

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 export default function ProductImage({ img_url, setImgUrl }) {
     const selectImage = (e) => {
