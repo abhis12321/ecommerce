@@ -16,7 +16,7 @@ export default function ImageSlider() {
   }, [index]);
 
   return (
-    <div className="w-full h-[50vh] bg-red-600">
+    <div className="w-full h-[50vh]">
       <Image src={images[index]} alt="" height={1000} width={1000} className="w-full h-full bg-cover" />
     </div>
   )
