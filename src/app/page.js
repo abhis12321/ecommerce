@@ -21,7 +21,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className='flex flex-col items-center justify-center' style={{ minHeight: 'calc(100vh - 4rem' }}>
+    <div className='relative flex flex-col items-center justify-center' style={{ minHeight: 'calc(100vh - 4rem' }}>
       <ImageSlider />
       {
         showFullInfo ? <ProductFullInfo product={showFullInfo} handleFullInfo={() => handleFullInfo()} />

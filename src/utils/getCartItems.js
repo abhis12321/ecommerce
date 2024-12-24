@@ -12,7 +12,7 @@ export const getCartItems = async () => {
             .populate({
                 path: 'product_id',   // targeting through
                 model: 'Products',       // targeting to
-                select: 'product_name product_description img_url price discount product_category' // field to select
+                select: 'product_title product_description product_category images price discountPercentage product_brand' // field to select
             })
             .lean() //  Mongoose documents => js objects
             .exec())?.map(item => ({            // serializing the objects

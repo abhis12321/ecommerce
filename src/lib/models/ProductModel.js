@@ -3,58 +3,78 @@ import dbConnect from "../config/dbConnect";
 
 dbConnect();
 const product_Schema = new mongoose.Schema({
-    product_name:{
+    product_title: {
+        type: String,
+        required: [true, 'data missing, Please enter product name'],
+    },
+    product_category: {
+        type: String,
+        required: [true, 'data missing, Please enter product category'],
+        // enum: {
+        //     values: [
+        //         "Electronics",
+        //         "Cameras",
+        //         "Laptops",
+        //         "Accessories",
+        //         "Headphones",
+        //         "Sports",
+        //         "Garments",
+        //     ],
+        //     message: "Invalid value, Please select correct category"
+        // }
+    },
+    product_description: {
+        type: String,
+        required: [true, 'data missing, Please enter product decription'],
+    },
+    price: {
+        type: Number,
+        required: [true, 'data missing, Please enter product price'],
+    },
+    discountPercentage: {
+        type: Number,
+        default: 0,
+    },
+    images: {
+        type: [String],
+        required: [true, 'data missing, Please choose some product images'],
+    },
+    thumbnail_img: {
         type:String,
-        required:[true , 'data missing, Please enter product name'],
     },
-    product_category:{
+    available_stock: {
+        type: Number,
+        required: [true, 'data missing, Please enter product available stock'],
+    },
+    product_tags: {
+        type:[String],
+    },
+    product_brand: {
         type:String,
-        required:[true , 'data missing, Please enter product category'],
-        enum: {
-            values:[
-                "Electronics",
-                "Cameras",
-                "Laptops",
-                "Accessories",
-                "Headphones",
-                "Sports",
-                "Garments",
-            ],
-            message:"Invalid value, Please select correct category"
-        }
     },
-    seller_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:[true , 'data missing, Please enter product seller'],
-    },
-    price:{
-        type:Number,
-        required:[true , 'data missing, Please enter product price'],
-    },
-    discount:{
-        type:Number,
-        default:0,
-    },
-    product_description:{
+    product_warrantyInformation: {
         type:String,
-        required:[true , 'data missing, Please enter product decription'],
+        required:[true , "some data missing"]
     },
-    img_url: {
+    product_shippingInformation: {
         type:String,
-        required:[true , 'data missing, Please choose some product images'],
+        required:[true , "some data missing"]
     },
-    available_stock:{
-        type:Number,
-        required:[true , 'data missing, Please enter product available stock'],
+    product_returnPolicy: {
+        type:String,
+        required:[true , "some data missing"]
     },
-    is_verified:{
-        type:Boolean,
-        default:false,
+    is_verified: {
+        type: Boolean,
+        default: false,
     },
-    created_at:{
-        type:Date,
-        default:Date.now,
+    seller_id: {
+        type: mongoose.Schema.Types.ObjectId,
+    },
+    created_at: {
+        type: Date,
+        default: Date.now,
     }
 });
 
-export const Product = mongoose.models.Products || mongoose.model('Products' , product_Schema);
+export const Product = mongoose.models.Products || mongoose.model('Products', product_Schema);

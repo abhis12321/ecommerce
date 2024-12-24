@@ -34,10 +34,10 @@ export default function CartItemCard({ product }) {
 
     return (
         <div className="w-full max-w-[700px] flex itm justify-center gap-4 p-4 bg-white shadow-[0_0_1px_black_inset]">
-            <Image src={product?.product_id?.img_url || "/productImg.jpg"} alt="" className="w-1/3" width={400} height={400} />
+            <Image src={product?.product_id?.images[0] || "/productImg.jpg"} alt="" className="w-1/3" width={400} height={400} />
             <div className="flex flex-col gap-2 items-center justify-center">
                 <div className="w-full flex justify-between">
-                    <h1 className="text-2xl font-bold">{product?.product_id?.product_name} <span className="text-xs font-normal">({product?.product_id?.product_category})</span></h1>
+                    <h1 className="text-2xl font-bold">{product?.product_id?.product_title} <span className="text-xs font-normal">({product?.product_id?.product_category})</span></h1>
                     <h1 className="font-bold"><span className="text-gray-500">Rs. </span>{product?.product_id?.price}</h1>
                 </div>
                 <h1 className="w-full font-mono">{product?.product_id?.product_description?.substring(0, 100)}...</h1>
