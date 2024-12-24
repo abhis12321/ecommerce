@@ -18,7 +18,11 @@ export const POST = async (req) => {
         const { user_id, product_id, product_quantity } = await req.json();
         const cartItem = await getProduct({ user_id, product_id });
         cartItem.product_quantity += product_quantity;
-        await cartItem.save();
+        if(cartItem.product_quantity >= 1) {
+            await cartItem.save();
+        } else {
+            await CartItem.findByIdAndDelete(cartItem?._id);
+        }
         return NextResponse.json({ success: true, message: "product added to your cart" });
     } catch (error) {
         // console.log(error.message)

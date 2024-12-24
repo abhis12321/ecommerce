@@ -41,7 +41,7 @@ export default function ProductFullInfo({ product, handleFullInfo }) {
                 </div>
                 <div className="w-full flex items-center justify-between">
                     <div className=""><span className="text-gray-500">Available stocks : </span>{product.available_stock}</div>
-                    <FontAwesomeIcon size='xs' icon={faCartPlus} className='h-6 cursor-pointer text-red-950 hover:text-blue-900' onClick={handleAddToCart} />
+                    <FontAwesomeIcon size='xs' icon={faCartPlus} className='h-6 cursor-pointer text-red-950 hover:text-blue-900 active:text-violet-700' onClick={handleAddToCart} />
                 </div>
                 <h1 className="font-mono font-semibold">{product.product_description}</h1>
             </div>
