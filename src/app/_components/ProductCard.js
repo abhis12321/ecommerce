@@ -8,14 +8,13 @@ export default function ProductCard({ product }) {
       <div className="flex items-center justify-center h-[300px] flex-1">
         <Image src={product.images[0] || "/productImg.jpg"} alt='product-img' className='w-fit h-fit max-h-[300px]' width={500} height={500} />
       </div>
-      <div className="w-full px-8 py-2 flex gap-2 flex-col items-center justify-center my-auto font-mono text-gray-500">
+      <div className="w-full px-2 py-2 flex gap-2 flex-col items-center justify-center my-auto font-mono text-gray-500">
         <div className="w-full flex items-center justify-between">
-          <h1 className="text-xl font-extrabold text-gray-900">{product.product_title}</h1>
-          <h3 className="text-lg font-semibold">Rs.{product.price.toFixed(2)}</h3>
-        </div>
-        <div className="w-full flex items-center justify-between text-xs">
-          <h1 className="">Available {product.product_category} : </h1>
-          <h1 className="">~{product.available_stock || 0}</h1>
+          <h2 className="text-xl font-extrabold text-gray-900 leading-5">{product.product_title.substring(0 , 40)}</h2>
+          <div className="flex flex-col items-center justify-center">
+            <h3 className="text-md font-semibold leading-4">Rs.{product.price.toFixed(2)}</h3>
+            <p className="text-xs">stock: {product?.available_stock}</p>
+          </div>
         </div>
       </div>
     </Link>

@@ -33,7 +33,7 @@ export default function ProductFullInfo({ product }) {
     return (
         <div className='h-nav w-full bg-blue-50 flex items-center justify-center'>
             <div className="w-full max-w-[800px] p-4 sm:p-8 bg-white rounded-lg relative flex flex-col justify-between items-center gap-6 shadow-[0px_0px_15px_gray_inset] text-gray-900">
-                <div className="w-full flex items-center justify-around overflow-hidden">
+                <div className="w-full flex flex-wrap items-center justify-around overflow-hidden">
                     <div className="w-[330px] h-[400px] flex items-center justify-center">
                         <Image src={activeImage || "/productImg.jpg"} alt='product-img' className='w-fit max-w-[330px] max-h-[400px] h-fit' width={500} height={500} />
                     </div>
