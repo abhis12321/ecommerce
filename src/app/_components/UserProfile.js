@@ -14,8 +14,8 @@ export default function UserProfile() {
             <p className=""><span className="text-gray-400">Name : </span>{user?.user_name} <span className="text-gray-400">({user?.user_role})</span></p>
             <p className=""><span className="text-gray-400">Email : </span>{user?.email}</p>
             <p className=""><span className="text-gray-400">MobileNo : </span>{user?.mobile_no}</p>
-            <button className='py-[5px] px-6 text-white hover:text-red-600 hover:font-bold bg-red-800 hover:bg-red-600/40 ring-2 ring-red-800 hover:ring-red-600 rounded-lg text-sm font-semibold' onClick={() => dispatch(logout())}>Logout</button>
-            <Link href={'/profile/newproducts'} className={`${user?.user_role === "customer" && "hidden"} py-[5px] px-6 rounded-lg bg-blue-700/50 hover:bg-blue-700/30 ring-2 ring-blue-700/50 text-sm font-semibold`} >add new product</Link>
+            <button className='py-[5px] px-6 text-white hover:text-red-600 hover:font-bold bg-red-800 hover:bg-red-600/40 ring-2 ring-red-800 hover:ring-red-600 rounded-lg text-sm font-semibold duration-100' onClick={() => dispatch(logout())}>Logout</button>
+            <Link href={'/dashboard/addnewproduct'} className={`py-[5px] px-6 rounded-lg bg-blue-900 hover:bg-blue-900/40 ring-2 ring-blue-900 text-white hover:text-blue-900 text-sm font-semibold hover:font-bold duration-100`} >Add New Product</Link>
         </div>
     )
 }

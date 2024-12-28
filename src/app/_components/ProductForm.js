@@ -50,7 +50,7 @@ export default function ProductForm() {
                     <label htmlFor="product_returnPolicy" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product returnPolicy</label>
                     <input type="text" name="product_returnPolicy" id="product_returnPolicy" placeholder="Enter product returnPolicy" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
                 </div>
-                <input type="submit" value="add" className="w-full py-[6.5px] rounded-md text-sm font-semibold cursor-pointer ring-1 ring-red-800 bg-red-700 hover:bg-red-600 active:bg-violet-700 text-white" />
+                <input type="submit" value="add this product" className="w-full py-[6.5px] rounded-md text-sm font-semibold cursor-pointer ring-1 ring-red-800 bg-red-700 hover:bg-red-600 active:bg-violet-700 text-white" />
             </form>
         </div>
     )

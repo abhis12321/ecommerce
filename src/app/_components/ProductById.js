@@ -1,4 +1,4 @@
-import Loading from './Loading'
+import ErrorPage from './ErrorPage'
 import ProductFullInfo from './ProductFullInfo'
 
 export default function ProductById({ product }) {
@@ -7,7 +7,7 @@ export default function ProductById({ product }) {
         {
           product ? <ProductFullInfo product={product} />
             :
-            <Loading />
+            <ErrorPage />
         }
       </div>
   )

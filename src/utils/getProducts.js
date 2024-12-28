@@ -17,6 +17,6 @@ export const getProductById = async ({ _id }) => {
         return products;
     } catch (error) {
         console.error(error.message);
-        return {};
+        return null;
     }
 }
