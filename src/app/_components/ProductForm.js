@@ -1,63 +1,57 @@
 "use client"
-import axios from 'axios';
-import { useState } from 'react';
-import ImageForm from './ImageForm';
-import { useSelector } from 'react-redux';
 
 export default function ProductForm() {
-  const user = useSelector(state => state.user.value);
-  const [product_name, setName] = useState('');
-  const [product_description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [product_category, setCategory] = useState('Garments');
-  const [available_stock, setAvailableStocks] = useState('');
-  const [img_url, setImgUrl] = useState("/productImg.jpg");
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log("form submitted!")
+    }
 
-  const handleNewProduct = e => {
-    e.preventDefault();
-    let data = { product_name, product_description, price, product_category, available_stock, seller_id: user._id, img_url };
-    
-    axios.post('/api/products', data)
-      .then(res => res.data)
-      .then(data => alert(data.message))
-      .catch(error => alert(error.message));
-
-    setName('');
-    setDescription('');
-    setPrice('');
-    setCategory('Garments');
-    setAvailableStocks('');
-  }
-
-
-  return (
-    <div className="flex items-center justify-center w-full" style={{minHeight:"calc(100vh - 4rem)"}}>
-      <form className='text-white bg-gradient-to-t from-cyan-900 dark:from-slate-900 via-gray-500 dark:via-cyan-950 to-cyan-900 dark:to-slate-950 shadow-[0_0_7px_white] w-[96%] max-w-[450px] m-auto rounded-2xl py-3 flex flex-col gap-[6px] items-center justify-center' autoComplete='on' onSubmit={handleNewProduct}>
-        <h1 className="hidden sm:block w-fit text-yellow-400 drop-shadow-[0_0_3px_black] text-sm">Fill all the fields to add the product</h1>
-
-        <div className="flex gap-2 items-center justify-evenly w-[96%] max-w-[380px]">
-          <ImageForm img_url={img_url} setImgUrl={setImgUrl} border_radius={"rounded"}/>
-          <select name="category" value={product_category} onChange={(e) => setCategory(e.target.value)} className='outline-none invalid:text-pink-600 w-fit font-semibold shadow-[0_0_3px_white] bg-slate-950/50 hover:bg-slate-950/70 focus:bg-slate-950 py-[6px] xs:px-3 rounded-md text-center ring-cyan-600 ring-2' >
-            <option value="Sports" className=''>Sports</option>
-            <option value="Garments" className=''>Garments</option>
-            <option value="Laptops" className=''>Laptops</option>
-            <option value="Cameras" className=''>Cameras</option>
-            <option value="Headphones" className=''>Headphones</option>
-            <option value="Electronics" className=''>Electronics</option>
-            <option value="Accessories" className=''>Accessories</option>
-          </select>
+    return (
+        <div className="h-nav flex items-center justify-center">
+            <form className="w-[98%] max-w-[500px] p-4 rounded-md shadow-[0_0_2px_gray] flex flex-col items-center gap-4 bg-white dark:bg-gray-800 ring-1 ring-gray-500" onSubmit={handleFormSubmit}>
+                <div className="w-fit py-1 font-bold text-3xl text-gray-600 dark:text-gray-400">Add New Product</div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_title" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product title</label>
+                    <input type="text" name="product_title" id="product_title" placeholder="Enter product title" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_category" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product category</label>
+                    <input type="text" name="product_category" id="product_category" placeholder="Enter product category" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_description" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product description</label>
+                    <input type="text" name="product_description" id="product_description" placeholder="Enter product description" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="price" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Price</label>
+                    <input type="number" name="price" id="price" placeholder="Enter price per unit" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="discountPercentage" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Discount percentage</label>
+                    <input type="number" name="discountPercentage" id="discountPercentage" placeholder="Enter discount percentage" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="available_stock" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Available stock</label>
+                    <input type="number" name="available_stock" id="available_stock" placeholder="Enter available stock" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_brand" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product brand</label>
+                    <input type="text" name="product_brand" id="product_brand" placeholder="Enter product brand" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_warrantyInformation" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product warrantyInformation</label>
+                    <input type="text" name="product_warrantyInformation" id="product_warrantyInformation" placeholder="Enter product warrantyInformation" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_shippingInformation" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product shippingInformation</label>
+                    <input type="text" name="product_shippingInformation" id="product_shippingInformation" placeholder="Enter product shippingInformation" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <div className="relative w-full group flex items-center justify-center">
+                    <label htmlFor="product_returnPolicy" className="absolute z-30 top-[-8px] left-[15px] text-xs font-bold text-gray-600 ring-gray-500 ring-1 rounded-lg bg-gray-300 group-focus-within:bg-gray-800 group-focus-within:text-white px-[22px] leading-[15px] cursor-grab group-focus-within:cursor-grabbing">Product returnPolicy</label>
+                    <input type="text" name="product_returnPolicy" id="product_returnPolicy" placeholder="Enter product returnPolicy" className="w-full appearance-none resize-none outline-none bg-white/5 text-sm shadow-[0_0_1px_gray] focus:shadow-[0_0_10px_black_inset] rounded-md py-[6px] px-4 ring-1 ring-gray-500" required />
+                </div>
+                <input type="submit" value="add" className="w-full py-[6.5px] rounded-md text-sm font-semibold cursor-pointer ring-1 ring-red-800 bg-red-700 hover:bg-red-600 active:bg-violet-700 text-white" />
+            </form>
         </div>
-
-        <input name='name' type="text" value={product_name} onChange={e => setName(e.target.value)} className=' outline-none invalid:text-pink-600 w-[96%] max-w-[600px] font-semibold shadow-[0_0_3px_white] bg-slate-950/70 hover:bg-slate-950 focus:bg-slate-950 py-2 px-3 rounded-md mx-auto text-center focus:ring-cyan-600 focus:ring-2 ' placeholder='enter product name' required />
-
-        <input name='Number' type="price" value={price} onChange={e => setPrice(e.target.value)} className=' outline-none invalid:text-pink-600 w-[96%] max-w-[600px] font-semibold shadow-[0_0_3px_white] bg-slate-950/70 hover:bg-slate-950 focus:bg-slate-950 py-2 px-3 rounded-md mx-auto text-center focus:ring-cyan-600 focus:ring-2 ' placeholder='product price' required />
-
-        <textarea value={product_description} onChange={e => setDescription(e.target.value)} placeholder='enter product description' cols="30" rows="5" className='outline-none invalid:text-pink-600 w-[96%] max-w-[600px] font-semibold shadow-[0_0_3px_white] bg-slate-950/70 hover:bg-slate-950 focus:bg-slate-950 py-2 px-3 rounded-md mx-auto text-center focus:ring-cyan-600 focus:ring-2' required></textarea>
-
-        <input name='stock' type="Number" value={available_stock} onChange={e => setAvailableStocks(e.target.value)} className=' outline-none invalid:text-pink-600 w-[96%] max-w-[600px] font-semibold shadow-[0_0_3px_white] bg-slate-950/70 hover:bg-slate-950 focus:bg-slate-950 py-2 px-3 rounded-md mx-auto text-center focus:ring-cyan-600 focus:ring-2 ' placeholder='no. available stock' required />
-
-        <input type="submit" value="add product" className=' outline-none invalid:text-pink-600 w-[96%] max-w-[600px] font-semibold shadow-[0_0_3px_white] py-2 px-3 rounded-md mx-auto temd-center bg-red-900 hover:bg-red-700 active:bg-violet-700 cursor-pointer' />
-      </form>
-    </div>
-  )
+    )
 }
