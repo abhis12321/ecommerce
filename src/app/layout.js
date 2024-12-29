@@ -14,7 +14,7 @@ export default async function RootLayout({ children }) {
   
   return (
     <html lang="en" className="">
-      <Wrapper user={user} cartItems={cartItems}>
+      <Wrapper user={user} cartItems={cartItems} >
         {children}
       </Wrapper>
     </html>

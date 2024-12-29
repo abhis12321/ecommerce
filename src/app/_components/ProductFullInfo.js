@@ -39,7 +39,7 @@ export default function ProductFullInfo({ product }) {
                         <Image src={activeImage || "/productImg.jpg"} alt='product-img' className='w-fit max-w-[330px] max-h-[400px] h-fit' width={500} height={500} />
                     </div>
                     <div className="flex flex-col gap-[3px]">{
-                        product?.images?.map(imgUrl => <div key={imgUrl} className={`w-[100px] h-[100px] shadow-[0_0_1px_black] flex items-center justify-center rounded hover:bg-cyan-300/20 cursor-pointer bg-gray-100 ${activeImage === imgUrl && "bg-indigo-100"}`} onClick={() => setActiveImage(imgUrl)}>
+                        product?.images?.map(imgUrl => <div key={imgUrl} className={`w-[100px] h-[100px] shadow-[0_0_1px_black] flex items-center justify-center rounded hover:bg-indigo-100/90 cursor-pointer bg-gray-100 ${activeImage === imgUrl && "bg-cyan-300/20"}`} onClick={() => setActiveImage(imgUrl)}>
                             <Image src={imgUrl || "/productImg.jpg"} alt='product-img' className='w-fit max-w-[100px] max-h-[100px] h-fit' width={500} height={500} />
                         </div>)
                     }</div>

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import dbConnect from "../config/dbConnect";
+import { categories } from "@/utils/globalVariables";
 
 dbConnect();
 const product_Schema = new mongoose.Schema({
@@ -10,18 +11,10 @@ const product_Schema = new mongoose.Schema({
     product_category: {
         type: String,
         required: [true, 'data missing, Please enter product category'],
-        // enum: {
-        //     values: [
-        //         "Electronics",
-        //         "Cameras",
-        //         "Laptops",
-        //         "Accessories",
-        //         "Headphones",
-        //         "Sports",
-        //         "Garments",
-        //     ],
-        //     message: "Invalid value, Please select correct category"
-        // }
+        enum: {
+            values: categories,
+            message: "Invalid value, Please select correct category"
+        }
     },
     product_description: {
         type: String,
@@ -38,6 +31,7 @@ const product_Schema = new mongoose.Schema({
     images: {
         type: [String],
         required: [true, 'data missing, Please choose some product images'],
+        default:["/productImg.jpg"],
     },
     thumbnail_img: {
         type:String,

@@ -1,9 +1,24 @@
 "use client"
 
+import { useSelector } from "react-redux";
+
 export default function ProductForm() {
+    const user = useSelector(state => state.user.value);
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("form submitted!")
+        const payload = {
+            product_title : e.target.product_title.value,
+            product_category : e.target.product_category.value,
+            product_description : e.target.product_description.value,
+            price : e.target.price.value,
+            discountPercentage : e.target.discountPercentage.value,
+            available_stock : e.target.available_stock.value,
+            product_shippingInformation : e.target.product_shippingInformation.value,
+            product_returnPolicy : e.target.product_returnPolicy.value,
+            product_warrantyInformation : e.target.product_warrantyInformation.value,
+            seller_id:user?._id,
+        }
+        console.log("form submitted!" , payload)
     }
 
     return (
