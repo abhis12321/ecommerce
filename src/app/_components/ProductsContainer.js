@@ -2,11 +2,11 @@ import Categories from './Categories';
 import ImageSlider from './ImageSlider';
 import ProductCard from './ProductCard';
 
-export default function ProductsContainer({allProducts}) {
+export default function ProductsContainer({allProducts, product_category}) {
     return (
       <div className='relative flex flex-col items-center gap-4'>
         <ImageSlider />
-        <Categories />
+        <Categories curr_product_category={product_category}/>
         {
           allProducts ?
             <div className="flex gap-7 flex-wrap items-center justify-around py-8">

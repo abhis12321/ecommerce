@@ -5,7 +5,7 @@ export const getAllProducts = async () => {
         const products = await Product.find({ is_verified: true });
         return products;
     } catch (error) {
-        console.error(error.message);
+        // console.error(error.message);
         return [];
     }
 }
@@ -19,4 +19,15 @@ export const getProductById = async ({ _id }) => {
         // console.error(error.message);
         return null;
     }
+}
+
+
+export const getAllProductsByCategory = async({ product_category }) => {
+    try {
+        const products = await Product.find({ is_verified: true, product_category });
+        return products;
+    } catch (error) {
+        // console.error(error.message);
+        return null;
+    }    
 }
