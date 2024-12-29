@@ -1,10 +1,12 @@
-import ImageSlider from './_components/ImageSlider';
-import ProductCard from './_components/ProductCard';
+import Categories from './Categories';
+import ImageSlider from './ImageSlider';
+import ProductCard from './ProductCard';
 
 export default function ProductsContainer({allProducts}) {
     return (
       <div className='relative flex flex-col items-center gap-4'>
         <ImageSlider />
+        <Categories />
         {
           allProducts ?
             <div className="flex gap-7 flex-wrap items-center justify-around py-8">

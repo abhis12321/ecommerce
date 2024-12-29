@@ -16,7 +16,7 @@ export const getProductById = async ({ _id }) => {
         const products = await Product.findOne({ is_verified: true, _id });
         return products;
     } catch (error) {
-        console.error(error.message);
+        // console.error(error.message);
         return null;
     }
 }
